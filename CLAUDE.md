@@ -8,7 +8,7 @@ This is a Turborepo monorepo with cross-platform React/React Native components u
 - **Turborepo**: Orchestrates build tasks and dependency management across workspaces
 - **pnpm**: Package manager with workspace configuration and version overrides
 - **NativeWind**: Cross-platform Tailwind CSS styling system
-- **React 19 + React Native 0.79.5**: Unified versions enforced via package overrides
+- **React 19 + React Native 0.81.4**: Unified versions enforced via package overrides
 
 ### Workspace Structure
 - `apps/mobile/`: Expo React Native app with Expo Router and NativeWind
@@ -48,7 +48,7 @@ pnpm start        # next start
 ## Key Configuration Details
 
 ### Package Management
-- **Version Overrides**: React 19.0.0, React Native 0.79.5, React Native Web 0.20.0, Tailwind 3.4.17 enforced in root package.json
+- **Version Overrides**: React 19.1.0, React Native 0.81.4, React Native Web 0.21.1, Tailwind 3.4.17 enforced in root package.json
 - **Workspace Dependencies**: UI package referenced as `"ui": "workspace:*"` in apps
 
 ### Next.js Configuration
@@ -65,3 +65,10 @@ pnpm start        # next start
 - **Location**: `packages/ui/src/` with barrel exports from `index.ts`
 - **Styling**: Use NativeWind classes (e.g., `className="px-6 py-3 rounded-lg"`)
 - **Components**: Built with React Native primitives (View, Text, Pressable) for cross-platform compatibility
+- **Variants**: Uses tailwind-variants (`tv`) for complex component variants and styling slots
+
+## Important Framework Versions
+- **Expo SDK**: 54.x (uses Expo Router for navigation)
+- **Next.js**: 15.5.0 with App Router
+- **TypeScript**: 5.x across all packages
+- **pnpm**: 10.15.0 (specified in packageManager field)

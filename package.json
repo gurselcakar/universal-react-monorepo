@@ -17,10 +17,10 @@
     "turbo": "^2.5.6"
   },
   "overrides": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.5",
-    "react-native-web": "0.20.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-web": "0.21.1",
     "tailwindcss": "3.4.17"
   }
 }

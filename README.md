@@ -64,7 +64,7 @@ pnpm --filter mobile dev   # Expo Metro bundler
 
 ## Resources
 
-- [Guide](https://gurselcakar.dev/writing/monorepo-guide) - Detailed walkthrough
+- [Guide](https://www.gurselcakar.com/writing/monorepo-guide) - Detailed walkthrough
 - [Next.js](https://nextjs.org/docs) | [Expo](https://docs.expo.dev/) | [NativeWind](https://www.nativewind.dev/) | [Turborepo](https://turbo.build/repo/docs)
 
 ## Author

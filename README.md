@@ -1,22 +1,16 @@
 # Universal React Monorepo
 
-A Turborepo template for building cross-platform applications with shared React Native components that run on web, iOS, and Android.
+Write React components once, run them on web, iOS, and Android. A Turborepo + NativeWind template with shared UI out of the box.
 
 ![Demo](./universal-react-monorepo-demo.png)
 
+> **New to monorepos?** Follow the [step-by-step guide](https://www.gurselcakar.com/monorepo) that built this template.
+
 ## Tech Stack
 
-| Technology | Version |
-|------------|---------|
-| Turborepo | 2.7.x |
-| Next.js | 16.x |
-| Expo SDK | 54.x |
-| React | 19.x |
-| React Native | 0.81.x |
-| NativeWind | 4.x |
-| Tailwind CSS | 3.4.x |
-| TypeScript | 5.x |
-| pnpm | 10.x |
+**Apps:** Next.js 16 (web), Expo SDK 54 (mobile)
+**UI:** React Native + NativeWind (Tailwind for RN)
+**Build:** Turborepo, pnpm workspaces, TypeScript
 
 ## Project Structure
 
@@ -64,13 +58,16 @@ pnpm --filter mobile dev   # Expo Metro bundler
 
 ## Resources
 
-- [Guide](https://www.gurselcakar.com/writing/monorepo-guide) - Detailed walkthrough
-- [Next.js](https://nextjs.org/docs) | [Expo](https://docs.expo.dev/) | [NativeWind](https://www.nativewind.dev/) | [Turborepo](https://turbo.build/repo/docs)
+- [Build guide](https://www.gurselcakar.com/monorepo) — step-by-step walkthrough
+- [Turborepo docs](https://turbo.build/repo/docs)
+- [NativeWind docs](https://www.nativewind.dev/)
+- [Expo docs](https://docs.expo.dev/)
+- [Next.js docs](https://nextjs.org/docs)
 
 ## Author
 
-Built by [Gursel Cakar](https://x.com/gurselcakar) — also the creator of [Hukora](https://hukora.com), a logic-based puzzle game.
+Built by [Gürsel Çakar](https://x.com/gurselcakar) — also the creator of [Hukora](https://hukora.com), a logic-based puzzle game.
 
-## License
+## Licence
 
 MIT

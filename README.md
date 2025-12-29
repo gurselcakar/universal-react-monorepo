@@ -8,16 +8,29 @@ Write React components once, run them on web, iOS, and Android. A Turborepo + Na
 
 ## Tech Stack
 
-**Apps:** Next.js 16 (web), Expo SDK 54 (mobile)
+**Apps:** Next.js 16 or Vite (web), Expo SDK 54 (mobile)
 **UI:** React Native + NativeWind (Tailwind for RN)
 **Build:** Turborepo, pnpm workspaces, TypeScript
+
+## Framework Setup
+
+This template supports both **Next.js** and **Vite**. You can choose your preferred framework by running the setup script:
+
+```bash
+node scripts/setup-repo.js
+```
+
+This script will:
+1. Ask you to choose between Next.js and Vite
+2. Remove the unused framework
+3. Rename the chosen framework folder to `apps/web`
 
 ## Project Structure
 
 ```
 ├── apps/
 │   ├── mobile/     # Expo React Native app
-│   └── web/        # Next.js web app
+│   └── web/        # Web app (Next.js or Vite, based on your choice)
 ├── packages/
 │   └── ui/         # Shared component library
 └── turbo.json      # Turborepo config

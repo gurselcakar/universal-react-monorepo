@@ -8,7 +8,7 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "setup-web": "node scripts/setup-web.js"
+    "setup-web": "node scripts/setup-repo.js"
   },
   "keywords": [],
   "author": "",

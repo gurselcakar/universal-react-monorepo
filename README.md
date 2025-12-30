@@ -8,7 +8,7 @@ Write React components once, run them on web, iOS, and Android. A Turborepo + Na
 
 ## Tech Stack
 
-**Apps:** Next.js 16 (web), Expo SDK 54 (mobile)
+**Apps:** Next.js 16 or Vite (web), Expo SDK 54 (mobile)
 **UI:** React Native + NativeWind (Tailwind for RN)
 **Build:** Turborepo, pnpm workspaces, TypeScript
 
@@ -17,11 +17,14 @@ Write React components once, run them on web, iOS, and Android. A Turborepo + Na
 ```
 ├── apps/
 │   ├── mobile/     # Expo React Native app
-│   └── web/        # Next.js web app
+│   ├── web/        # Next.js web app
+│   └── web-vite/   # Vite web app (alternative)
 ├── packages/
 │   └── ui/         # Shared component library
 └── turbo.json      # Turborepo config
 ```
+
+> **Choosing a web framework:** Both `web` (Next.js) and `web-vite` (Vite + TanStack Router) are included. Delete the one you don't need, or keep both for comparison.
 
 ## Getting Started
 
@@ -37,8 +40,9 @@ pnpm install
 pnpm dev
 
 # Or run individually
-pnpm --filter web dev      # Next.js at localhost:3000
-pnpm --filter mobile dev   # Expo Metro bundler
+pnpm --filter web dev       # Next.js at localhost:3000
+pnpm --filter web-vite dev  # Vite at localhost:5173
+pnpm --filter mobile dev    # Expo Metro bundler
 ```
 
 ## Commands

@@ -1,0 +1,5 @@
+export { Header } from './Header'
+export { Footer } from './Footer'
+export { Hero } from './Hero'
+export { TechStack } from './TechStack'
+export { QuickStart } from './QuickStart'

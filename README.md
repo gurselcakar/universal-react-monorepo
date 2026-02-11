@@ -1,16 +1,42 @@
 # Universal React Monorepo
 
-Write React components once, run them on web, iOS, and Android. A Turborepo + NativeWind template with shared UI out of the box.
+Build React components once, run on web, iOS, and Android. A Turborepo + NativeWind monorepo template with shared UI.
 
 ![Demo](./universal-react-monorepo-demo.png)
 
 > **New to monorepos?** Follow the [step-by-step guide](https://www.gurselcakar.com/monorepo) that built this template.
 
+## Getting Started
+
+**Prerequisites:** Node.js 18+, pnpm 10+, and optionally Xcode/Android Studio for mobile.
+
+```bash
+git clone https://github.com/gurselcakar/universal-react-monorepo.git
+cd universal-react-monorepo
+pnpm install
+pnpm dev              # Start all apps
+```
+
+Run individually:
+
+```bash
+pnpm --filter web dev       # Next.js → localhost:3000
+pnpm --filter web-vite dev  # Vite → localhost:5173
+pnpm --filter mobile dev    # Expo Metro bundler
+```
+
+Other commands: `pnpm build`, `pnpm lint`, `pnpm typecheck`
+
 ## Tech Stack
 
-**Apps:** Next.js 16 or Vite (web), Expo SDK 54 (mobile)
-**UI:** React Native + NativeWind (Tailwind for RN)
-**Build:** Turborepo, pnpm workspaces, TypeScript
+| Layer | Technology |
+|-------|------------|
+| Web | Next.js 16 or Vite + TanStack Router |
+| Mobile | Expo SDK 54 (React Native) |
+| Shared UI | React Native + NativeWind |
+| Build | Turborepo, pnpm workspaces, TypeScript |
+
+Components in `packages/ui/` are written once with React Native + NativeWind. On web, `react-native-web` renders them as HTML. On mobile, Expo renders them natively.
 
 ## Project Structure
 
@@ -42,52 +68,6 @@ mv apps/web-vite apps/web
 pnpm install
 ```
 
-## Getting Started
-
-**Prerequisites**: Node.js 18+, pnpm 10+, and optionally Xcode/Android Studio for mobile development.
-
-```bash
-# Clone and install
-git clone https://github.com/gurselcakar/universal-react-monorepo.git
-cd universal-react-monorepo
-pnpm install
-
-# Start all apps
-pnpm dev
-
-# Or run individually
-pnpm --filter web dev       # Next.js at localhost:3000
-pnpm --filter web-vite dev  # Vite at localhost:5173
-pnpm --filter mobile dev    # Expo Metro bundler
-```
-
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start all apps |
-| `pnpm build` | Build all apps |
-| `pnpm lint` | Lint all workspaces |
-| `pnpm typecheck` | TypeScript type checking |
-
-## How It Works
-
-- **Shared Components**: `packages/ui/` contains React Native components styled with NativeWind
-- **Web**: Next.js uses react-native-web to render React Native components as HTML
-- **Mobile**: Expo renders components natively on iOS/Android
-
-## Resources
-
-- [Build guide](https://www.gurselcakar.com/monorepo) — step-by-step walkthrough
-- [Turborepo docs](https://turbo.build/repo/docs)
-- [NativeWind docs](https://www.nativewind.dev/)
-- [Expo docs](https://docs.expo.dev/)
-- [Next.js docs](https://nextjs.org/docs)
-
 ## Author
 
-Built by [Gürsel Çakar](https://x.com/gurselcakar) — also the creator of [Hukora](https://hukora.com), a logic-based puzzle game.
-
-## Licence
-
-MIT
+Built by [Gürsel Çakar](https://x.com/gurselcakar). Check out my games: [Hukora](https://hukora.com) and [Arithmego](https://arithmego.com).

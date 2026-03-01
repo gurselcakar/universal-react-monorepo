@@ -9,16 +9,16 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "~19.1.13",
+    "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
-    "eslint-config-expo": "~10.0.0",
-    "expo": "~54.0.25",
+    "eslint-config-expo": "~55.0.0",
+    "expo": "~55.0.4",
     "nativewind": "^4.1.23",
     "typescript": "~5.9.2"
   },
   "peerDependencies": {
-    "react": "19.1.0",
-    "react-native": "0.81.5"
+    "react": "19.2.0",
+    "react-native": "0.83.2"
   },
   "dependencies": {
     "tailwind-merge": "^3.3.1",

@@ -17,7 +17,7 @@ importers:
     devDependencies:
       turbo:
         specifier: ^2.7.2
-        version: 2.8.12
+        version: 2.8.20
 
   apps/mobile:
     dependencies:
@@ -2274,6 +2274,36 @@ packages:
   '@tanstack/virtual-file-routes@1.141.0':
     resolution: {integrity: sha512-CJrWtr6L9TVzEImm9S7dQINx+xJcYP/aDkIi6gnaWtIgbZs1pnzsE0yJc2noqXZ+yAOqLx3TBGpBEs9tS0P9/A==}
     engines: {node: '>=12'}
+
+  '@turbo/darwin-64@2.8.20':
+    resolution: {integrity: sha512-FQ9EX1xMU5nbwjxXxM3yU88AQQ6Sqc6S44exPRroMcx9XZHqqppl5ymJF0Ig/z3nvQNwDmz1Gsnvxubo+nXWjQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@turbo/darwin-arm64@2.8.20':
+    resolution: {integrity: sha512-Gpyh9ATFGThD6/s9L95YWY54cizg/VRWl2B67h0yofG8BpHf67DFAh9nuJVKG7bY0+SBJDAo5cMur+wOl9YOYw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@turbo/linux-64@2.8.20':
+    resolution: {integrity: sha512-p2QxWUYyYUgUFG0b0kR+pPi8t7c9uaVlRtjTTI1AbCvVqkpjUfCcReBn6DgG/Hu8xrWdKLuyQFaLYFzQskZbcA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@turbo/linux-arm64@2.8.20':
+    resolution: {integrity: sha512-Gn5yjlZGLRZWarLWqdQzv0wMqyBNIdq1QLi48F1oY5Lo9kiohuf7BPQWtWxeNVS2NgJ1+nb/DzK1JduYC4AWOA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@turbo/windows-64@2.8.20':
+    resolution: {integrity: sha512-vyaDpYk/8T6Qz5V/X+ihKvKFEZFUoC0oxYpC1sZanK6gaESJlmV3cMRT3Qhcg4D2VxvtC2Jjs9IRkrZGL+exLw==}
+    cpu: [x64]
+    os: [win32]
+
+  '@turbo/windows-arm64@2.8.20':
+    resolution: {integrity: sha512-voicVULvUV5yaGXo0Iue13BcHGYW3u0VgqSbfQwBaHbpj1zLjYV4KIe+7fYIo6DO8FVUJzxFps3ODCQG/Wy2Qw==}
+    cpu: [arm64]
+    os: [win32]
 
   '@tybys/wasm-util@0.10.0':
     resolution: {integrity: sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==}
@@ -5506,38 +5536,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  turbo-darwin-64@2.8.12:
-    resolution: {integrity: sha512-EiHJmW2MeQQx+21x8hjMHw/uPhXt9PIxvDrxzOtyVwrXzL0tQmsxtO4qHf2l7uA+K6PUJ4+TjY1MHZDuCvWXrw==}
-    cpu: [x64]
-    os: [darwin]
-
-  turbo-darwin-arm64@2.8.12:
-    resolution: {integrity: sha512-cbqqGN0vd7ly2TeuaM8k9AK9u1CABO4kBA5KPSqovTiLL3sORccn/mZzJSbvQf0EsYRfU34MgW5FotfwW3kx8Q==}
-    cpu: [arm64]
-    os: [darwin]
-
-  turbo-linux-64@2.8.12:
-    resolution: {integrity: sha512-jXKw9j4r4q6s0goSXuKI3aKbQK2qiNeP25lGGEnq018TM6SWRW1CCpPMxyG91aCKrub7wDm/K45sGNT4ZFBcFQ==}
-    cpu: [x64]
-    os: [linux]
-
-  turbo-linux-arm64@2.8.12:
-    resolution: {integrity: sha512-BRJCMdyXjyBoL0GYpvj9d2WNfMHwc3tKmJG5ATn2Efvil9LsiOsd/93/NxDqW0jACtHFNVOPnd/CBwXRPiRbwA==}
-    cpu: [arm64]
-    os: [linux]
-
-  turbo-windows-64@2.8.12:
-    resolution: {integrity: sha512-vyFOlpFFzQFkikvSVhVkESEfzIopgs2J7J1rYvtSwSHQ4zmHxkC95Q8Kjkus8gg+8X2mZyP1GS5jirmaypGiPw==}
-    cpu: [x64]
-    os: [win32]
-
-  turbo-windows-arm64@2.8.12:
-    resolution: {integrity: sha512-9nRnlw5DF0LkJClkIws1evaIF36dmmMEO84J5Uj4oQ8C0QTHwlH7DNe5Kq2Jdmu8GXESCNDNuUYG8Cx6W/vm3g==}
-    cpu: [arm64]
-    os: [win32]
-
-  turbo@2.8.12:
-    resolution: {integrity: sha512-auUAMLmi0eJhxDhQrxzvuhfEbICnVt0CTiYQYY8WyRJ5nwCDZxD0JG8bCSxT4nusI2CwJzmZAay5BfF6LmK7Hw==}
+  turbo@2.8.20:
+    resolution: {integrity: sha512-Rb4qk5YT8RUwwdXtkLpkVhNEe/lor6+WV7S5tTlLpxSz6MjV5Qi8jGNn4gS6NAvrYGA/rNrE6YUQM85sCZUDbQ==}
     hasBin: true
 
   type-check@0.4.0:
@@ -6996,7 +6996,7 @@ snapshots:
       ws: 8.19.0
       zod: 3.25.76
     optionalDependencies:
-      expo-router: 55.0.3(0cd64d393947d6cf59993cff0758f90e)
+      expo-router: 55.0.3(2f40a2e6295b0131d3813c16342f1ce9)
       react-native: 0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0)
     transitivePeerDependencies:
       - '@expo/dom-webview'
@@ -7249,7 +7249,7 @@ snapshots:
       react: 19.2.0
     optionalDependencies:
       '@expo/metro-runtime': 55.0.6(@expo/dom-webview@55.0.3)(expo@55.0.4)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      expo-router: 55.0.3(0cd64d393947d6cf59993cff0758f90e)
+      expo-router: 55.0.3(2f40a2e6295b0131d3813c16342f1ce9)
       react-dom: 19.2.0(react@19.2.0)
     transitivePeerDependencies:
       - supports-color
@@ -8099,6 +8099,24 @@ snapshots:
   '@tanstack/store@0.8.0': {}
 
   '@tanstack/virtual-file-routes@1.141.0': {}
+
+  '@turbo/darwin-64@2.8.20':
+    optional: true
+
+  '@turbo/darwin-arm64@2.8.20':
+    optional: true
+
+  '@turbo/linux-64@2.8.20':
+    optional: true
+
+  '@turbo/linux-arm64@2.8.20':
+    optional: true
+
+  '@turbo/windows-64@2.8.20':
+    optional: true
+
+  '@turbo/windows-arm64@2.8.20':
+    optional: true
 
   '@tybys/wasm-util@0.10.0':
     dependencies:
@@ -9710,55 +9728,6 @@ snapshots:
       invariant: 2.2.4
       react: 19.2.0
       react-native: 0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0)
-
-  expo-router@55.0.3(0cd64d393947d6cf59993cff0758f90e):
-    dependencies:
-      '@expo/log-box': 55.0.7(@expo/dom-webview@55.0.3)(expo@55.0.4)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      '@expo/metro-runtime': 55.0.6(@expo/dom-webview@55.0.3)(expo@55.0.4)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      '@expo/schema-utils': 55.0.2
-      '@radix-ui/react-slot': 1.2.3(@types/react@19.2.14)(react@19.2.0)
-      '@radix-ui/react-tabs': 1.1.13(@types/react-dom@19.1.7(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      '@react-navigation/bottom-tabs': 7.15.2(@react-navigation/native@7.1.31(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native-safe-area-context@5.6.2(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native-screens@4.23.0(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      '@react-navigation/native': 7.1.31(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      '@react-navigation/native-stack': 7.14.2(@react-navigation/native@7.1.31(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native-safe-area-context@5.6.2(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native-screens@4.23.0(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      client-only: 0.0.1
-      debug: 4.4.3
-      escape-string-regexp: 4.0.0
-      expo: 55.0.4(@babel/core@7.28.5)(@expo/dom-webview@55.0.3)(@expo/metro-runtime@55.0.6)(expo-router@55.0.3)(react-dom@19.2.0(react@19.2.0))(react-native-webview@13.16.0(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)(typescript@5.9.2)
-      expo-constants: 55.0.7(expo@55.0.4)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(typescript@5.9.2)
-      expo-glass-effect: 55.0.7(expo@55.0.4)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      expo-image: 55.0.5(expo@55.0.4)(react-native-web@0.21.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      expo-linking: 55.0.7(expo@55.0.4)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)(typescript@5.9.2)
-      expo-server: 55.0.6
-      expo-symbols: 55.0.4(expo-font@55.0.4)(expo@55.0.4)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      fast-deep-equal: 3.1.3
-      invariant: 2.2.4
-      nanoid: 3.3.11
-      query-string: 7.1.3
-      react: 19.2.0
-      react-fast-compare: 3.2.2
-      react-native: 0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0)
-      react-native-is-edge-to-edge: 1.2.1(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      react-native-safe-area-context: 5.6.2(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      react-native-screens: 4.23.0(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      semver: 7.6.3
-      server-only: 0.0.1
-      sf-symbols-typescript: 2.1.0
-      shallowequal: 1.1.0
-      use-latest-callback: 0.2.4(react@19.2.0)
-      vaul: 1.1.2(@types/react-dom@19.1.7(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-    optionalDependencies:
-      react-dom: 19.2.0(react@19.2.0)
-      react-native-gesture-handler: 2.30.0(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      react-native-reanimated: 4.2.1(react-native-worklets@0.7.4(@babel/core@7.28.5)(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0))(react-native@0.83.2(@babel/core@7.28.5)(@types/react@19.2.14)(react@19.2.0))(react@19.2.0)
-      react-native-web: 0.21.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-    transitivePeerDependencies:
-      - '@react-native-masked-view/masked-view'
-      - '@types/react'
-      - '@types/react-dom'
-      - expo-font
-      - supports-color
-    optional: true
 
   expo-router@55.0.3(2f40a2e6295b0131d3813c16342f1ce9):
     dependencies:
@@ -12089,32 +12058,14 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  turbo-darwin-64@2.8.12:
-    optional: true
-
-  turbo-darwin-arm64@2.8.12:
-    optional: true
-
-  turbo-linux-64@2.8.12:
-    optional: true
-
-  turbo-linux-arm64@2.8.12:
-    optional: true
-
-  turbo-windows-64@2.8.12:
-    optional: true
-
-  turbo-windows-arm64@2.8.12:
-    optional: true
-
-  turbo@2.8.12:
+  turbo@2.8.20:
     optionalDependencies:
-      turbo-darwin-64: 2.8.12
-      turbo-darwin-arm64: 2.8.12
-      turbo-linux-64: 2.8.12
-      turbo-linux-arm64: 2.8.12
-      turbo-windows-64: 2.8.12
-      turbo-windows-arm64: 2.8.12
+      '@turbo/darwin-64': 2.8.20
+      '@turbo/darwin-arm64': 2.8.20
+      '@turbo/linux-64': 2.8.20
+      '@turbo/linux-arm64': 2.8.20
+      '@turbo/windows-64': 2.8.20
+      '@turbo/windows-arm64': 2.8.20
 
   type-check@0.4.0:
     dependencies:

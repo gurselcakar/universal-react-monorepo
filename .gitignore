@@ -13,3 +13,7 @@ dist
 # Claude local
 .claude
 CLAUDE.md
+
+
+.nx/cache
+.nx/workspace-data

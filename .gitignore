@@ -17,3 +17,7 @@ CLAUDE.md
 
 .nx/cache
 .nx/workspace-data
+
+# Next.js
+.next
+out

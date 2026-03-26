@@ -14,6 +14,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {
+    "@nx/next": "22.6.1",
     "nx": "22.6.1"
   },
   "pnpm": {
@@ -29,5 +30,10 @@
       "sharp",
       "unrs-resolver"
     ]
+  },
+  "dependencies": {
+    "next": "~16.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

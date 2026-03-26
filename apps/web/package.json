@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "start": "next start --webpack",
+    "dev": "nx next:dev --webpack",
+    "build": "nx next:build --webpack",
+    "start": "nx next:start --webpack",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },

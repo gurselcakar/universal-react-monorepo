@@ -4,11 +4,8 @@
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
-  "scripts": {
-    "lint": "eslint",
-    "typecheck": "tsc --noEmit"
-  },
   "devDependencies": {
+    "@tooling/eslint-config-react-native": "workspace:*",
     "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~55.0.0",
@@ -21,7 +18,12 @@
     "react-native": "0.83.2"
   },
   "dependencies": {
+    "@packages/theme": "workspace:*",
+    "@rn-primitives/portal": "^1.4.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "tailwind-merge": "^3.3.1",
-    "tailwind-variants": "^3.1.0"
+    "tailwind-variants": "^3.1.0",
+    "tailwindcss-animate": "^1.0.7"
   }
 }

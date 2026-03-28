@@ -2,10 +2,9 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "noEmit": true
+    "noEmit": true,
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*",
-    "nativewind-env.d.ts"
-  ]
+  "include": ["src/**/*", "nativewind-env.d.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,55 +1,51 @@
-import { useState } from "react";
-import { Text, View, Alert, ScrollView } from "react-native";
-import { Button, Card, Text as UIText, Badge, Input } from "ui";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Header } from "../../../components";
+import { useState } from 'react'
+import { Text, View, Alert, ScrollView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Button, Card, Text as UIText, Badge, Input } from 'ui'
 
-function ComponentSection({
+import { Header } from '../../../components'
+
+const ComponentSection = ({
   title,
   importStatement,
   children,
 }: {
-  title: string;
-  importStatement: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <View className="py-6 border-b border-gray-100">
-      <View className="flex-row items-center justify-between mb-4">
-        <Text className="text-base font-semibold text-gray-900">{title}</Text>
-        <View className="bg-gray-50 px-2 py-1 rounded">
-          <Text className="text-xs text-gray-500 font-mono">{importStatement}</Text>
-        </View>
+  title: string
+  importStatement: string
+  children: React.ReactNode
+}) => (
+  <View className="border-b border-gray-100 py-6">
+    <View className="mb-4 flex-row items-center justify-between">
+      <Text className="text-base font-semibold text-gray-900">{title}</Text>
+      <View className="rounded bg-gray-50 px-2 py-1">
+        <Text className="font-mono text-xs text-gray-500">{importStatement}</Text>
       </View>
-      {children}
     </View>
-  );
-}
+    {children}
+  </View>
+)
 
 export default function Demo() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('')
 
   return (
     <SafeAreaView className="flex-1 bg-white" edges={['top', 'left', 'right']}>
-      <Header
-        title="Shared UI Components"
-        subtitle="Cross-platform components with NativeWind"
-      />
+      <Header title="Shared UI Components" subtitle="Cross-platform components with NativeWind" />
 
       <ScrollView
         className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerClassName="px-6"
       >
-        <Text className="text-sm text-gray-400 mt-4 mb-2">
+        <Text className="mb-2 mt-4 text-sm text-gray-400">
           These same components render on web via React Native Web.
         </Text>
-        <Text className="text-sm text-gray-400 mb-4">
+        <Text className="mb-4 text-sm text-gray-400">
           Add, modify, or reorganize these components however you like.
         </Text>
 
         <ComponentSection title="Button" importStatement="from 'ui'">
-          <View className="flex-row gap-3 flex-wrap">
+          <View className="flex-row flex-wrap gap-3">
             <Button title="Primary" onPress={() => Alert.alert('Pressed', 'Primary button')} />
             <Button title="Secondary" variant="secondary" onPress={() => {}} />
             <Button title="Outline" variant="outline" onPress={() => {}} />
@@ -76,7 +72,7 @@ export default function Demo() {
         </ComponentSection>
 
         <ComponentSection title="Badge" importStatement="from 'ui'">
-          <View className="flex-row gap-3 flex-wrap">
+          <View className="flex-row flex-wrap gap-3">
             <Badge label="Default" />
             <Badge label="Success" variant="success" />
             <Badge label="Warning" variant="warning" />
@@ -91,8 +87,7 @@ export default function Demo() {
             onChangeText={setInputValue}
           />
         </ComponentSection>
-
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

@@ -1,0 +1,17 @@
+# Build outputs
+dist
+.next
+out
+build
+
+# Dependency directories
+node_modules
+
+# Auto-generated
+pnpm-lock.yaml
+src/routeTree.gen.ts
+
+# Mobile / Expo
+.expo
+android
+ios

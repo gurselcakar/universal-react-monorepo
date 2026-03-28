@@ -2,16 +2,9 @@
   "name": "mobile",
   "main": "expo-router/entry",
   "version": "1.0.0",
-  "scripts": {
-    "dev": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "expo lint",
-    "typecheck": "tsc --noEmit"
-  },
   "dependencies": {
     "@expo/metro-runtime": "~55.0.6",
+    "@packages/theme": "workspace:*",
     "expo": "~55.0.4",
     "expo-blur": "~55.0.8",
     "expo-font": "~55.0.4",
@@ -22,6 +15,7 @@
     "expo-splash-screen": "~55.0.10",
     "expo-status-bar": "~55.0.4",
     "expo-symbols": "~55.0.4",
+    "@rn-primitives/portal": "^1.4.0",
     "expo-system-ui": "~55.0.9",
     "expo-web-browser": "~55.0.9",
     "nativewind": "^4.1.23",
@@ -38,6 +32,7 @@
     "ui": "workspace:*"
   },
   "devDependencies": {
+    "@tooling/eslint-config-react-native": "workspace:*",
     "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~55.0.0",
@@ -45,5 +40,8 @@
     "tailwindcss": "^3.4.18",
     "typescript": "~5.9.2"
   },
-  "private": true
+  "private": true,
+  "scripts": {
+    "lint": "expo lint"
+  }
 }

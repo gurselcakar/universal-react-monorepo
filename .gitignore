@@ -7,17 +7,12 @@ node_modules
 dist
 *.tsbuildinfo
 
-# Turbo
-.turbo
-
-# Claude local
-.claude
-CLAUDE.md
-
-
+# Nx
 .nx/cache
 .nx/workspace-data
 
 # Next.js
 .next
 out
+
+vite.config.*.timestamp*

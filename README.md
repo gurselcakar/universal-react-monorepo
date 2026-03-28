@@ -21,7 +21,7 @@ Run individually:
 
 ```bash
 pnpm --filter web dev       # Next.js → localhost:3000
-pnpm --filter web-vite dev  # Vite → localhost:5173
+pnpm --filter ui-demo dev  # Vite → localhost:5173
 pnpm --filter mobile dev    # Expo Metro bundler
 ```
 
@@ -29,12 +29,12 @@ Other commands: `pnpm build`, `pnpm lint`, `pnpm typecheck`
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Web | Next.js 16 or Vite + TanStack Router |
-| Mobile | Expo SDK 54 (React Native) |
-| Shared UI | React Native + NativeWind |
-| Build | Turborepo, pnpm workspaces, TypeScript |
+| Layer     | Technology                             |
+| --------- | -------------------------------------- |
+| Web       | Next.js 16 or Vite + TanStack Router   |
+| Mobile    | Expo SDK 54 (React Native)             |
+| Shared UI | React Native + NativeWind              |
+| Build     | Turborepo, pnpm workspaces, TypeScript |
 
 Components in `packages/ui/` are written once with React Native + NativeWind. On web, `react-native-web` renders them as HTML. On mobile, Expo renders them natively.
 
@@ -44,7 +44,7 @@ Components in `packages/ui/` are written once with React Native + NativeWind. On
 ├── apps/
 │   ├── mobile/     # Expo React Native app
 │   ├── web/        # Next.js web app
-│   └── web-vite/   # Vite web app (alternative)
+│   └── ui-demo/    # Vite web app (alternative)
 ├── packages/
 │   └── ui/         # Shared component library
 └── turbo.json      # Turborepo config
@@ -52,19 +52,21 @@ Components in `packages/ui/` are written once with React Native + NativeWind. On
 
 ### Choosing a Web Framework
 
-Both `web` (Next.js) and `web-vite` (Vite + TanStack Router) are included. Remove the one you don't need:
+Both `web` (Next.js) and `ui-demo` (Vite + TanStack Router) are included. Remove the one you don't need:
 
 **Keep Next.js only:**
+
 ```bash
-rm -rf apps/web-vite
+rm -rf apps/ui-demo
 pnpm install
 ```
 
 **Keep Vite only:**
+
 ```bash
 rm -rf apps/web
-mv apps/web-vite apps/web
-# Update "name" in apps/web/package.json from "web-vite" to "web"
+mv apps/ui-demo apps/web
+# Update "name" in apps/web/package.json from "ui-demo" to "web"
 pnpm install
 ```
 

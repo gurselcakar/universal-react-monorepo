@@ -1,5 +1,5 @@
-import { View } from 'react-native';
-import { tv } from 'tailwind-variants';
+import { View } from 'react-native'
+import { tv } from 'tailwind-variants'
 
 const cardVariants = tv({
   base: 'p-5 rounded-lg border',
@@ -12,17 +12,13 @@ const cardVariants = tv({
   defaultVariants: {
     variant: 'default',
   },
-});
+})
 
 interface CardProps {
-  children?: React.ReactNode;
-  variant?: 'default' | 'elevated';
+  children?: React.ReactNode
+  variant?: 'default' | 'elevated'
 }
 
-export function Card({ children, variant = 'default' }: CardProps) {
-  return (
-    <View className={cardVariants({ variant })}>
-      {children}
-    </View>
-  );
-}
+export const Card = ({ children, variant = 'default' }: CardProps) => (
+  <View className={cardVariants({ variant })}>{children}</View>
+)

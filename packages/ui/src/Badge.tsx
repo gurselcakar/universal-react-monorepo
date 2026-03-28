@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
-import { tv } from 'tailwind-variants';
+import { View, Text } from 'react-native'
+import { tv } from 'tailwind-variants'
 
 const badgeVariants = tv({
   slots: {
@@ -25,19 +25,19 @@ const badgeVariants = tv({
   defaultVariants: {
     variant: 'default',
   },
-});
+})
 
 interface BadgeProps {
-  label: string;
-  variant?: 'default' | 'success' | 'warning';
+  label: string
+  variant?: 'default' | 'success' | 'warning'
 }
 
-export function Badge({ label, variant = 'default' }: BadgeProps) {
-  const { container, text } = badgeVariants({ variant });
+export const Badge = ({ label, variant = 'default' }: BadgeProps) => {
+  const { container, text } = badgeVariants({ variant })
 
   return (
     <View className={container()}>
       <Text className={text()}>{label}</Text>
     </View>
-  );
+  )
 }

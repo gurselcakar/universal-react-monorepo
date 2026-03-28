@@ -1,0 +1,51 @@
+{
+  "name": "mobile",
+  "projectType": "application",
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start",
+        "cwd": "apps/mobile"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --android",
+        "cwd": "apps/mobile"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --ios",
+        "cwd": "apps/mobile"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "web": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --web",
+        "cwd": "apps/mobile"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "apps/mobile"
+      },
+      "inputs": ["default", "^default", "{projectRoot}/tsconfig.json"],
+      "cache": true
+    }
+  }
+}

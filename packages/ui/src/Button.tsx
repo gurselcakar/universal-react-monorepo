@@ -1,5 +1,5 @@
-import { Pressable, Text } from 'react-native';
-import { tv } from 'tailwind-variants';
+import { Pressable, Text } from 'react-native'
+import { tv } from 'tailwind-variants'
 
 const buttonVariants = tv({
   slots: {
@@ -31,27 +31,21 @@ const buttonVariants = tv({
     variant: 'primary',
     disabled: false,
   },
-});
+})
 
 interface ButtonProps {
-  title: string;
-  onPress: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
-  disabled?: boolean;
+  title: string
+  onPress: () => void
+  variant?: 'primary' | 'secondary' | 'outline'
+  disabled?: boolean
 }
 
-export function Button({ title, onPress, variant = 'primary', disabled = false }: ButtonProps) {
-  const { button, text } = buttonVariants({ variant, disabled });
+export const Button = ({ title, onPress, variant = 'primary', disabled = false }: ButtonProps) => {
+  const { button, text } = buttonVariants({ variant, disabled })
 
   return (
-    <Pressable
-      onPress={onPress}
-      disabled={disabled}
-      className={button()}
-    >
-      <Text className={text()}>
-        {title}
-      </Text>
+    <Pressable onPress={onPress} disabled={disabled} className={button()}>
+      <Text className={text()}>{title}</Text>
     </Pressable>
-  );
+  )
 }

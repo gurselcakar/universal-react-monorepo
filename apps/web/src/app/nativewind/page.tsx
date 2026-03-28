@@ -2,61 +2,56 @@
 
 import { useState } from 'react'
 import { View } from 'react-native'
-import { Header, Footer } from '../../components'
 import { Button, Card, Text, Badge, Input } from 'ui'
 
-function ComponentSection({
+import { Header, Footer } from '../../components'
+
+const ComponentSection = ({
   title,
   importStatement,
-  children
+  children,
 }: {
   title: string
   importStatement: string
   children: React.ReactNode
-}) {
-  return (
-    <div className="py-10 border-b border-gray-100 last:border-b-0">
-      <div className="flex items-baseline justify-between mb-6">
-        <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-        <code className="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded">
-          {importStatement}
-        </code>
-      </div>
-      {children}
+}) => (
+  <div className="border-b border-gray-100 py-10 last:border-b-0">
+    <div className="mb-6 flex items-baseline justify-between">
+      <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+      <code className="rounded bg-gray-50 px-2 py-1 text-xs text-gray-500">{importStatement}</code>
     </div>
-  )
-}
+    {children}
+  </div>
+)
 
 export default function ComponentsPage() {
   const [inputValue, setInputValue] = useState('')
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="flex min-h-screen flex-col bg-white">
       <Header />
 
       <main className="flex-1">
-        <section className="py-16 px-6">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold text-gray-900 mb-3">
-              Shared UI Components
-            </h1>
-            <p className="text-gray-500 mb-2">
+        <section className="px-6 py-16">
+          <div className="mx-auto max-w-3xl">
+            <h1 className="mb-3 text-3xl font-bold text-gray-900">Shared UI Components</h1>
+            <p className="mb-2 text-gray-500">
               Cross-platform components built with React Native primitives and NativeWind.
             </p>
             <p className="text-sm text-gray-400">
               These same components render natively on iOS and Android.
             </p>
-            <p className="text-sm text-gray-400 mt-4">
-              This is your starting point. Add, modify, or reorganize these components however you like.
+            <p className="mt-4 text-sm text-gray-400">
+              This is your starting point. Add, modify, or reorganize these components however you
+              like.
             </p>
           </div>
         </section>
 
         <section className="px-6 pb-16">
-          <div className="max-w-3xl mx-auto">
-
+          <div className="mx-auto max-w-3xl">
             <ComponentSection title="Button" importStatement="import { Button } from 'ui'">
-              <View className="flex-row gap-3 flex-wrap">
+              <View className="flex-row flex-wrap gap-3">
                 <Button title="Primary" onPress={() => {}} />
                 <Button title="Secondary" variant="secondary" onPress={() => {}} />
                 <Button title="Outline" variant="outline" onPress={() => {}} />
@@ -83,7 +78,7 @@ export default function ComponentsPage() {
             </ComponentSection>
 
             <ComponentSection title="Badge" importStatement="import { Badge } from 'ui'">
-              <View className="flex-row gap-3 flex-wrap">
+              <View className="flex-row flex-wrap gap-3">
                 <Badge label="Default" />
                 <Badge label="Success" variant="success" />
                 <Badge label="Warning" variant="warning" />
@@ -100,7 +95,6 @@ export default function ComponentsPage() {
                 />
               </View>
             </ComponentSection>
-
           </div>
         </section>
       </main>

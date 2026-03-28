@@ -1,0 +1,57 @@
+{
+  "name": "ui-demo",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -b && vite build",
+        "cwd": "apps/ui-demo"
+      },
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "cache": true
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite",
+        "cwd": "apps/ui-demo"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite preview",
+        "cwd": "apps/ui-demo"
+      },
+      "dependsOn": [
+        "build"
+      ],
+      "continuous": true
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "apps/ui-demo"
+      },
+      "inputs": [
+        "default",
+        "^default",
+        "{projectRoot}/tsconfig.json"
+      ],
+      "cache": true
+    }
+  }
+}

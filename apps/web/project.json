@@ -1,0 +1,44 @@
+{
+  "name": "web",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "next build --webpack",
+        "cwd": "apps/web"
+      },
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default", "{projectRoot}/.env*"],
+      "outputs": ["{projectRoot}/.next"],
+      "cache": true
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "next dev --webpack",
+        "cwd": "apps/web"
+      },
+      "continuous": true,
+      "cache": false
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "next start --webpack",
+        "cwd": "apps/web"
+      },
+      "dependsOn": ["build"],
+      "continuous": true
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "apps/web"
+      },
+      "inputs": ["default", "^default", "{projectRoot}/tsconfig.json"],
+      "cache": true
+    }
+  }
+}

@@ -1,49 +1,38 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": ["default", "!{projectRoot}/**/*.spec.*", "!{projectRoot}/**/*.test.*"]
+  },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "$TURBO_DEFAULTS$",
-        "{projectRoot}/.env*"
-      ],
-      "outputs": [
-        "{projectRoot}/.next/**",
-        "!{projectRoot}/.next/cache/**",
-        "{projectRoot}/dist/**"
-      ],
+      "dependsOn": ["^build"],
       "cache": true
     },
     "typecheck": {
-      "dependsOn": [
-        "^typecheck"
-      ],
+      "dependsOn": ["^typecheck"],
       "cache": true
     },
     "lint": {
-      "dependsOn": [
-        "^lint"
-      ],
-      "cache": true
+      "cache": true,
+      "configurations": {
+        "fix": {
+          "args": "--fix"
+        }
+      }
     },
     "dev": {
       "cache": false
     }
   },
-  "analytics": true,
-  "plugins": [
-    {
-      "plugin": "@nx/next/plugin",
-      "options": {
-        "startTargetName": "next:start",
-        "buildTargetName": "next:build",
-        "devTargetName": "next:dev",
-        "serveStaticTargetName": "serve-static",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
-      }
-    }
-  ]
+  "analytics": true
 }

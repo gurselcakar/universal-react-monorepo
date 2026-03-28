@@ -1,5 +1,5 @@
-import { Text as RNText } from 'react-native';
-import { tv } from 'tailwind-variants';
+import { Text as RNText } from 'react-native'
+import { tv } from 'tailwind-variants'
 
 const textVariants = tv({
   base: 'text-gray-900',
@@ -13,17 +13,13 @@ const textVariants = tv({
   defaultVariants: {
     variant: 'body',
   },
-});
+})
 
 interface TextProps {
-  children: React.ReactNode;
-  variant?: 'title' | 'body' | 'caption';
+  children: React.ReactNode
+  variant?: 'title' | 'body' | 'caption'
 }
 
-export function Text({ children, variant = 'body' }: TextProps) {
-  return (
-    <RNText className={textVariants({ variant })}>
-      {children}
-    </RNText>
-  );
-}
+export const Text = ({ children, variant = 'body' }: TextProps) => (
+  <RNText className={textVariants({ variant })}>{children}</RNText>
+)

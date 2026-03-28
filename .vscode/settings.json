@@ -6,13 +6,13 @@
     "source.fixAll.eslint": "always"
   },
 
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.format.enable": false,
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*" },
+    { "pattern": "packages/*" },
+    { "pattern": "tooling/*" }
+  ],
 
   // prefer absolute imports
   "js/ts.preferences.importModuleSpecifier": "non-relative",
@@ -49,5 +49,7 @@
   ],
   "tailwindCSS.classFunctions": ["useResolveClassNames"],
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-  "chat.agent.maxRequests": 10000
+  "chat.agent.maxRequests": 10000,
+  // Stop node_module error spam
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": false
 }

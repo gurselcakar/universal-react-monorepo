@@ -2,15 +2,10 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "nx next:dev --webpack",
-    "build": "nx next:build --webpack",
-    "start": "nx next:start --webpack",
-    "lint": "eslint",
-    "typecheck": "tsc --noEmit"
-  },
   "dependencies": {
+    "@packages/theme": "workspace:*",
     "next": "16.1.6",
+    "@rn-primitives/portal": "^1.4.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native-web": "~0.21.1",
@@ -18,6 +13,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tooling/eslint-config-base": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

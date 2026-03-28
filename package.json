@@ -4,18 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "turbo lint",
-    "typecheck": "turbo typecheck"
+    "dev": "nx run-many -t dev",
+    "build": "nx run-many -t build",
+    "typecheck": "nx run-many -t typecheck",
+    "format": "nx format:write",
+    "format:check": "nx format:check",
+    "lint": "nx run-many -t lint --configuration=fix",
+    "lint:check": "nx run-many -t lint",
+    "test": "nx run-many -t test"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {
+    "@nx/eslint": "22.6.1",
     "@nx/next": "22.6.1",
-    "nx": "22.6.1"
+    "@nx/vite": "22.6.1",
+    "@nx/web": "22.6.1",
+    "@swc-node/register": "^1.11.1",
+    "@swc/core": "^1.15.21",
+    "@tooling/eslint-config-base": "workspace:*",
+    "@tooling/prettier-config": "workspace:*",
+    "eslint-config-prettier": "^10.1.8",
+    "jiti": "2.4.2",
+    "nx": "22.6.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   },
   "pnpm": {
     "overrides": {
@@ -23,17 +38,13 @@
       "react-dom": "19.2.0",
       "react-native": "0.83.2",
       "react-native-web": "0.21.1",
-      "tailwindcss": "3.4.18"
+      "tailwindcss": "3.4.18",
+      "vite": "^6.3.5"
     },
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
       "unrs-resolver"
     ]
-  },
-  "dependencies": {
-    "next": "~16.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
   }
 }

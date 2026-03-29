@@ -1,3 +1,4 @@
+import { PortalHost } from '@rn-primitives/portal'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -5,7 +6,6 @@ import { createRoot } from 'react-dom/client'
 import { routeTree } from './routeTree.gen'
 
 import './globals.css'
-import { PortalHost } from '@rn-primitives/portal'
 
 const router = createRouter({ routeTree })
 

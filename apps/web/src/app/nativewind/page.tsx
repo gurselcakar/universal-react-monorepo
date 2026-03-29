@@ -1,8 +1,8 @@
 'use client'
 
+import { Button, Card, Text, Badge, Input } from '@chalkboard/shared-frontend'
 import { useState } from 'react'
 import { View } from 'react-native'
-import { Button, Card, Text, Badge, Input } from 'ui'
 
 import { Header, Footer } from '../../components'
 
@@ -30,7 +30,11 @@ export default function ComponentsPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <Header />
-
+      <Button>
+        This is a shared Button component. It uses React Native primitives and NativeWind for
+        styling, but renders as a native button on iOS and Android, and as a regular HTML button in
+        the web app.
+      </Button>
       <main className="flex-1">
         <section className="px-6 py-16">
           <div className="mx-auto max-w-3xl">
@@ -50,15 +54,27 @@ export default function ComponentsPage() {
 
         <section className="px-6 pb-16">
           <div className="mx-auto max-w-3xl">
-            <ComponentSection title="Button" importStatement="import { Button } from 'ui'">
+            <ComponentSection
+              title="Button"
+              importStatement="import { Button } from 'shared-frontend'"
+            >
               <View className="flex-row flex-wrap gap-3">
-                <Button title="Primary" onPress={() => {}} />
-                <Button title="Secondary" variant="secondary" onPress={() => {}} />
-                <Button title="Outline" variant="outline" onPress={() => {}} />
+                <Button onPress={() => {}}>
+                  <Text>Primary</Text>
+                </Button>
+                <Button variant="secondary" onPress={() => {}}>
+                  <Text>Secondary</Text>
+                </Button>
+                <Button variant="ghost" onPress={() => {}}>
+                  <Text>Outline</Text>
+                </Button>
               </View>
             </ComponentSection>
 
-            <ComponentSection title="Card" importStatement="import { Card } from 'ui'">
+            <ComponentSection
+              title="Card"
+              importStatement="import { Card } from '@chalkboard/shared-frontend'"
+            >
               <View className="gap-4">
                 <Card>
                   <Text variant="body">Default card with subtle border styling.</Text>
@@ -69,15 +85,21 @@ export default function ComponentsPage() {
               </View>
             </ComponentSection>
 
-            <ComponentSection title="Text" importStatement="import { Text } from 'ui'">
+            <ComponentSection
+              title="Text"
+              importStatement="import { Text } from '@chalkboard/shared-frontend'"
+            >
               <View className="gap-2">
-                <Text variant="title">Title variant</Text>
+                <Text variant="h3">Title variant</Text>
                 <Text variant="body">Body variant for regular content.</Text>
                 <Text variant="caption">Caption variant for secondary information.</Text>
               </View>
             </ComponentSection>
 
-            <ComponentSection title="Badge" importStatement="import { Badge } from 'ui'">
+            <ComponentSection
+              title="Badge"
+              importStatement="import { Badge } from 'shared-frontend'"
+            >
               <View className="flex-row flex-wrap gap-3">
                 <Badge label="Default" />
                 <Badge label="Success" variant="success" />
@@ -85,7 +107,10 @@ export default function ComponentsPage() {
               </View>
             </ComponentSection>
 
-            <ComponentSection title="Input" importStatement="import { Input } from 'ui'">
+            <ComponentSection
+              title="Input"
+              importStatement="import { Input } from 'shared-frontend'"
+            >
               <View className="max-w-sm">
                 <Input
                   label="Email address"

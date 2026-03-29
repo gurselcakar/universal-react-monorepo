@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-import nativewindPreset from 'nativewind/preset'
 import { tailwindPreset } from '@packages/theme'
+import nativewindPreset from 'nativewind/preset'
 
 module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', '../../packages/ui/src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    '../../packages/shared-frontend/src/**/*.{js,jsx,ts,tsx}',
+  ],
   presets: [nativewindPreset, tailwindPreset],
   theme: {
     extend: {},

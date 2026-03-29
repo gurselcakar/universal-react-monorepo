@@ -1,7 +1,7 @@
+import { Button, Card, Text as UIText, Badge, Input } from '@chalkboard/shared-frontend'
 import { useState } from 'react'
 import { Text, View, Alert, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Button, Card, Text as UIText, Badge, Input } from 'ui'
 
 import { Header } from '../../../components'
 
@@ -44,15 +44,21 @@ export default function Demo() {
           Add, modify, or reorganize these components however you like.
         </Text>
 
-        <ComponentSection title="Button" importStatement="from 'ui'">
+        <ComponentSection title="Button" importStatement="from '@chalkboard/shared-frontend'">
           <View className="flex-row flex-wrap gap-3">
-            <Button title="Primary" onPress={() => Alert.alert('Pressed', 'Primary button')} />
-            <Button title="Secondary" variant="secondary" onPress={() => {}} />
-            <Button title="Outline" variant="outline" onPress={() => {}} />
+            <Button onPress={() => Alert.alert('Pressed', 'Primary button')}>
+              <UIText>Primary</UIText>
+            </Button>
+            <Button variant="secondary" onPress={() => {}}>
+              <UIText>Secondary</UIText>
+            </Button>
+            <Button variant="ghost" onPress={() => {}}>
+              <UIText>Outline</UIText>
+            </Button>
           </View>
         </ComponentSection>
 
-        <ComponentSection title="Card" importStatement="from 'ui'">
+        <ComponentSection title="Card" importStatement="from '@chalkboard/shared-frontend'">
           <View className="gap-3">
             <Card>
               <UIText variant="body">Default card with subtle border styling.</UIText>
@@ -63,15 +69,15 @@ export default function Demo() {
           </View>
         </ComponentSection>
 
-        <ComponentSection title="Text" importStatement="from 'ui'">
+        <ComponentSection title="Text" importStatement="from '@chalkboard/shared-frontend'">
           <View className="gap-2">
-            <UIText variant="title">Title variant</UIText>
+            <UIText variant="h3">Title variant</UIText>
             <UIText variant="body">Body variant for regular content.</UIText>
             <UIText variant="caption">Caption variant for secondary information.</UIText>
           </View>
         </ComponentSection>
 
-        <ComponentSection title="Badge" importStatement="from 'ui'">
+        <ComponentSection title="Badge" importStatement="from '@chalkboard/shared-frontend'">
           <View className="flex-row flex-wrap gap-3">
             <Badge label="Default" />
             <Badge label="Success" variant="success" />
@@ -79,7 +85,7 @@ export default function Demo() {
           </View>
         </ComponentSection>
 
-        <ComponentSection title="Input" importStatement="from 'ui'">
+        <ComponentSection title="Input" importStatement="from '@chalkboard/shared-frontend'">
           <Input
             label="Email address"
             placeholder="you@example.com"

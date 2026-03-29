@@ -1,4 +1,4 @@
-import { reactNative, withTypeChecking } from '@tooling/eslint-config-react-native'
+import { reactNative, withTypeChecking } from '@chalkboard/eslint-config-react-native'
 
 export default [
   ...reactNative,
@@ -7,6 +7,11 @@ export default [
   {
     files: ['**/*.{ts,tsx,js,jsx}'],
     rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
+  // UIText is a custom Text wrapper component — allow raw text inside it
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: { 'react-native/no-raw-text': ['warn', { skip: ['UIText'] }] },
   },
   {
     ignores: ['dist/*'],

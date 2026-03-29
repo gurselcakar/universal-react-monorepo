@@ -1,3 +1,4 @@
+import { HelloWorld } from '@chalkboard/shared-frontend'
 import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Text, View, ScrollView, Pressable, Linking } from 'react-native'
@@ -5,30 +6,29 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Header } from '../../../components'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const technologies = [
   {
     name: 'Turborepo',
     description: 'High-performance build system with intelligent caching',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     image: require('../../../../assets/images/turborepo-dark.svg'),
   },
   {
     name: 'Next.js 16',
     description: 'React framework with App Router for the web',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     image: require('../../../../assets/images/next.svg'),
   },
   {
     name: 'Expo SDK 54',
     description: 'React Native framework with Expo Router',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     image: require('../../../../assets/images/expo-wordmark.png'),
   },
   {
     name: 'NativeWind',
     description: 'Tailwind CSS for React Native',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-require-imports
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     image: require('../../../../assets/images/nativewind-logo.jpeg'),
   },
 ]
@@ -70,6 +70,11 @@ export default function Home() {
               </Pressable>
             </Link>
           </View>
+        </View>
+
+        {/* tRPC Hello World */}
+        <View className="border-t border-gray-100 px-6">
+          <HelloWorld />
         </View>
 
         {/* Tech Stack */}

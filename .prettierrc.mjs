@@ -1,1 +1,1 @@
-export { default } from '@tooling/prettier-config'
+export { default } from '@chalkboard/prettier-config'

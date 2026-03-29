@@ -1,7 +1,9 @@
+import { TRPCProvider } from '@chalkboard/shared-frontend'
+import { PortalHost } from '@rn-primitives/portal'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+
 import './globals.css'
-import { PortalHost } from '@rn-primitives/portal'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,8 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <PortalHost />
-        {children}</body>
+        <TRPCProvider>
+          <PortalHost />
+          {children}
+        </TRPCProvider>
+      </body>
     </html>
   )
 }

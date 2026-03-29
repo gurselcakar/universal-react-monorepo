@@ -1,3 +1,3 @@
-import { base } from '@tooling/eslint-config-base'
+import { base } from '@chalkboard/eslint-config-base'
 
 export default [...base]

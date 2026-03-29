@@ -1,5 +1,5 @@
 {
-  "name": "@tooling/eslint-config-base",
+  "name": "@chalkboard/eslint-config-base",
   "version": "0.0.0",
   "private": true,
   "type": "module",

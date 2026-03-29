@@ -1,4 +1,4 @@
-import { base, withTypeChecking } from '@tooling/eslint-config-base'
+import { base, withTypeChecking } from '@chalkboard/eslint-config-base'
 import { globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 

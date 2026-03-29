@@ -1,0 +1,10 @@
+{
+  "extends": ["../../tsconfig.base.json", "expo/tsconfig.base"],
+  "compilerOptions": {
+    "paths": {
+      "@chalkboard/shared-frontend/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "nativewind-env.d.ts"],
+  "exclude": ["node_modules"]
+}

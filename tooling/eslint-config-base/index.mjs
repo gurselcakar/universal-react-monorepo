@@ -121,7 +121,7 @@ export const base = tseslint.config(
       'no-useless-return': 'warn',
     },
   },
-  // File naming conventions (KEBAB_CASE for src/components and src/lib)
+  // File naming conventions (KEBAB_CASE for all ts/tsx files)
   {
     files: ['**/*.{ts,tsx}'],
     plugins: { 'check-file': checkFile },
@@ -129,8 +129,7 @@ export const base = tseslint.config(
       'check-file/filename-naming-convention': [
         'error',
         {
-          'src/components/**/*.{ts,tsx}': 'KEBAB_CASE',
-          'src/lib/**/*.{ts,tsx}': 'KEBAB_CASE',
+          '**/*.{ts,tsx}': 'KEBAB_CASE',
         },
         { ignoreMiddleExtensions: true },
       ],
@@ -168,7 +167,7 @@ export const base = tseslint.config(
  * Adds strictTypeChecked rules that require parserOptions.project (slower but thorough).
  *
  * Usage in eslint.config.mjs:
- *   import { withTypeChecking } from '@tooling/eslint-config-base'
+ *   import { withTypeChecking } from '@chalkboard/eslint-config-base'
  *   export default [...base, ...withTypeChecking(import.meta.dirname)]
  */
 export const withTypeChecking = (tsconfigRootDir) =>
@@ -178,7 +177,7 @@ export const withTypeChecking = (tsconfigRootDir) =>
     extends: [...tseslint.configs.strictTypeChecked],
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json',
+        projectService: true,
         tsconfigRootDir,
       },
     },

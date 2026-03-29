@@ -1,5 +1,5 @@
 {
-  "name": "@tooling/eslint-config-react-native",
+  "name": "@chalkboard/eslint-config-react-native",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     ".": "./index.mjs"
   },
   "dependencies": {
-    "@tooling/eslint-config-base": "workspace:*",
+    "@chalkboard/eslint-config-base": "workspace:*",
     "eslint-config-expo": "~55.0.0",
     "eslint-plugin-react-native": "^5.0.0"
   },

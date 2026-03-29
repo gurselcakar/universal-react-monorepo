@@ -1,19 +1,25 @@
 {
-  "name": "web",
+  "name": "@chalkboard/web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chalkboard/api": "workspace:*",
+    "@chalkboard/shared-frontend": "workspace:*",
     "@packages/theme": "workspace:*",
-    "next": "16.1.6",
     "@rn-primitives/portal": "^1.4.0",
+    "@tanstack/react-query": "^5.95.2",
+    "@trpc/client": "^11.16.0",
+    "@trpc/react-query": "^11.16.0",
+    "@trpc/server": "^11.16.0",
+    "next": "16.1.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native-web": "~0.21.1",
-    "ui": "workspace:*"
+    "superjson": "^2.2.6"
   },
   "devDependencies": {
+    "@chalkboard/eslint-config-base": "workspace:*",
     "@eslint/eslintrc": "^3",
-    "@tooling/eslint-config-base": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

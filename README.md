@@ -36,7 +36,7 @@ Other commands: `pnpm build`, `pnpm lint`, `pnpm typecheck`
 | Shared UI | React Native + NativeWind              |
 | Build     | Turborepo, pnpm workspaces, TypeScript |
 
-Components in `packages/ui/` are written once with React Native + NativeWind. On web, `react-native-web` renders them as HTML. On mobile, Expo renders them natively.
+Components in `packages/shared-frontend/` are written once with React Native + NativeWind. On web, `react-native-web` renders them as HTML. On mobile, Expo renders them natively.
 
 ## Project Structure
 

@@ -1,4 +1,4 @@
-import { base, withTypeChecking } from '@tooling/eslint-config-base'
+import { base, withTypeChecking } from '@chalkboard/eslint-config-base'
 import expoConfig from 'eslint-config-expo/flat.js'
 import reactNativePlugin from 'eslint-plugin-react-native'
 
@@ -36,5 +36,5 @@ export const reactNative = [
   },
 ]
 
-// Re-export for convenience so mobile projects only need @tooling/eslint-config-react-native
+// Re-export for convenience so mobile projects only need @chalkboard/eslint-config-react-native
 export { withTypeChecking }

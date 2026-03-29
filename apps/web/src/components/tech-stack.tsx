@@ -1,25 +1,30 @@
+import { imageSources, nativeDimensions } from '@chalkboard/shared-frontend/lib/image-sources'
 import Image from 'next/image'
 
 const technologies = [
   {
     name: 'Turborepo',
     description: 'High-performance build system with intelligent caching',
-    logo: '/turborepo-dark.svg',
+    logo: imageSources['turborepo-dark'],
+    ...nativeDimensions['turborepo-dark'],
   },
   {
     name: 'Next.js 16',
     description: 'React framework with App Router for the web',
-    logo: '/next.svg',
+    logo: imageSources.next,
+    ...nativeDimensions.next,
   },
   {
     name: 'Expo SDK 54',
     description: 'React Native framework with Expo Router',
-    logo: '/expo-wordmark.png',
+    logo: imageSources['expo-wordmark'],
+    ...nativeDimensions['expo-wordmark'],
   },
   {
     name: 'NativeWind',
     description: 'Tailwind CSS for React Native',
-    logo: '/nativewind-logo.jpeg',
+    logo: imageSources['nativewind-logo'],
+    ...nativeDimensions['nativewind-logo'],
   },
 ]
 
@@ -35,8 +40,8 @@ export const TechStack = () => (
               <Image
                 src={tech.logo}
                 alt={`${tech.name} logo`}
-                width={64}
-                height={64}
+                width={tech.width}
+                height={tech.height}
                 className="h-full w-full object-contain"
               />
             </div>

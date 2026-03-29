@@ -18,7 +18,6 @@
   "license": "MIT",
   "packageManager": "pnpm@10.32.1",
   "devDependencies": {
-    "@bradygaster/squad-cli": "^0.9.1",
     "@chalkboard/eslint-config-base": "workspace:*",
     "@chalkboard/prettier-config": "workspace:*",
     "@github/copilot-sdk": "^0.2.0",
@@ -46,7 +45,15 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
-      "unrs-resolver"
+      "unrs-resolver",
+      "@bradygaster/squad-cli",
+      "@github/copilot-sdk",
+      "vscode-jsonrpc"
     ]
+  },
+  "dependencies": {
+    "@bradygaster/squad-cli": "^0.9.1",
+    "@github/copilot-sdk": "^0.2.0",
+    "vscode-jsonrpc": "^8.2.1"
   }
 }

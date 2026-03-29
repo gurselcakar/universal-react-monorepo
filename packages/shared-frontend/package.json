@@ -6,15 +6,21 @@
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./*": "./src/*"
+    "./*": "./src/*",
+    "./assets/*": "./assets/*"
+  },
+  "scripts": {
+    "index-images": "tsx scripts/index-images.ts"
   },
   "devDependencies": {
     "@chalkboard/eslint-config-react-native": "workspace:*",
+    "@chalkboard/image-indexer": "workspace:*",
     "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~55.0.0",
     "expo": "~55.0.4",
     "nativewind": "^4.1.23",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.2"
   },
   "peerDependencies": {
@@ -24,14 +30,15 @@
   "dependencies": {
     "@chalkboard/api": "workspace:*",
     "@packages/theme": "workspace:*",
-    "@t3-oss/env-core": "^0.12.0",
     "@rn-primitives/portal": "^1.4.0",
     "@rn-primitives/slot": "^1.4.0",
+    "@t3-oss/env-core": "^0.12.0",
     "@tanstack/react-query": "^5.95.2",
     "@trpc/client": "^11.16.0",
     "@trpc/react-query": "^11.16.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "expo-image": "~55.0.5",
     "superjson": "^2.2.6",
     "tailwind-merge": "^3.3.1",
     "tailwind-variants": "^3.1.0",

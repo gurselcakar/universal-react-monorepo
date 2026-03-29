@@ -2,13 +2,41 @@
   "name": "shared-frontend",
   "projectType": "library",
   "targets": {
+    "index-images": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsx scripts/index-images.ts",
+        "cwd": "packages/shared-frontend"
+      },
+      "inputs": [
+        "imageIndexer",
+        "{projectRoot}/assets/svg/**",
+        "{projectRoot}/assets/images/**",
+        "!{projectRoot}/assets/images/converted-svg/**",
+        "{projectRoot}/scripts/index-images.ts"
+      ],
+      "outputs": [
+        "{projectRoot}/src/lib/image-sources.ts",
+        "{projectRoot}/src/lib/image-sources.native.ts",
+        "{projectRoot}/src/lib/image-sources.web.ts",
+        "{projectRoot}/assets/images/converted-svg"
+      ],
+      "cache": true
+    },
     "typecheck": {
       "executor": "nx:run-commands",
       "options": {
         "command": "tsc --noEmit",
         "cwd": "packages/shared-frontend"
       },
-      "inputs": ["default", "^default", "{projectRoot}/tsconfig.json"],
+      "dependsOn": [
+        "index-images"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{projectRoot}/tsconfig.json"
+      ],
       "cache": true
     }
   }

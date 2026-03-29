@@ -1,0 +1,19 @@
+{
+    "name": "image-indexer",
+    "projectType": "library",
+    "targets": {
+        "typecheck": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc --noEmit",
+                "cwd": "tooling/image-indexer"
+            },
+            "inputs": [
+                "default",
+                "^default",
+                "{projectRoot}/tsconfig.json"
+            ],
+            "cache": true
+        }
+    }
+}

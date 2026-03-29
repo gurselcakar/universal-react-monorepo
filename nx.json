@@ -29,6 +29,10 @@
       "{workspaceRoot}/tsconfig.base.json",
       "{workspaceRoot}/tsconfig.json"
     ],
+    "imageIndexer": [
+      "{workspaceRoot}/tooling/image-indexer/src/**",
+      "{workspaceRoot}/tooling/image-indexer/package.json"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/*.spec.*",

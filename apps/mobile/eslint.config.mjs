@@ -14,6 +14,6 @@ export default [
     rules: { 'react-native/no-raw-text': ['warn', { skip: ['UIText'] }] },
   },
   {
-    ignores: ['dist/*'],
+    ignores: ['dist/*', 'scripts/**'],
   },
 ]

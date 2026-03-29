@@ -1,23 +1,31 @@
+import { imageSources, nativeDimensions } from '@chalkboard/shared-frontend/lib/image-sources'
+
 const technologies = [
   {
     name: 'Turborepo',
     description: 'High-performance build system with intelligent caching',
-    logo: '/turborepo-dark.svg',
+    logo: imageSources['turborepo-dark'],
+    ...nativeDimensions['turborepo-dark'],
   },
   {
     name: 'Vite',
     description: 'Lightning-fast development with HMR',
     logo: '/vite.svg',
+    width: 64,
+    height: 64,
   },
   {
     name: 'NativeWind',
     description: 'Tailwind CSS for React Native',
-    logo: '/nativewind-logo.jpeg',
+    logo: imageSources['nativewind-logo'],
+    ...nativeDimensions['nativewind-logo'],
   },
   {
     name: 'TanStack Router',
     description: 'Type-safe file-based routing for React',
     logo: '/tanstack.png',
+    width: 64,
+    height: 64,
   },
 ]
 
@@ -33,8 +41,8 @@ export const TechStack = () => (
               <img
                 src={tech.logo}
                 alt={`${tech.name} logo`}
-                width={64}
-                height={64}
+                width={tech.width}
+                height={tech.height}
                 className="h-full w-full object-contain"
               />
             </div>

@@ -1,4 +1,5 @@
 import { HelloWorld } from '@chalkboard/shared-frontend'
+import { imageSources } from '@chalkboard/shared-frontend/lib/image-sources'
 import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Text, View, ScrollView, Pressable, Linking } from 'react-native'
@@ -10,26 +11,22 @@ const technologies = [
   {
     name: 'Turborepo',
     description: 'High-performance build system with intelligent caching',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    image: require('../../../../assets/images/turborepo-dark.svg'),
+    image: imageSources['turborepo-dark'],
   },
   {
     name: 'Next.js 16',
     description: 'React framework with App Router for the web',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    image: require('../../../../assets/images/next.svg'),
+    image: imageSources.next,
   },
   {
     name: 'Expo SDK 54',
     description: 'React Native framework with Expo Router',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    image: require('../../../../assets/images/expo-wordmark.png'),
+    image: imageSources['expo-wordmark'],
   },
   {
     name: 'NativeWind',
     description: 'Tailwind CSS for React Native',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    image: require('../../../../assets/images/nativewind-logo.jpeg'),
+    image: imageSources['nativewind-logo'],
   },
 ]
 
@@ -85,7 +82,7 @@ export default function Home() {
               <View key={tech.name} className="w-[45%] flex-row items-center gap-4">
                 <View className="h-16 w-16 items-center justify-center">
                   <Image
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                     
                     source={tech.image}
                     style={{ width: 64, height: 64 }}
                     contentFit="contain"

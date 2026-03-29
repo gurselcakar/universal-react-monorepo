@@ -8,6 +8,10 @@
         "command": "expo start",
         "cwd": "apps/mobile"
       },
+      "dependsOn": [
+        "index-images",
+        "^index-images"
+      ],
       "continuous": true,
       "cache": false
     },
@@ -17,6 +21,10 @@
         "command": "expo start --android",
         "cwd": "apps/mobile"
       },
+      "dependsOn": [
+        "index-images",
+        "^index-images"
+      ],
       "continuous": true,
       "cache": false
     },
@@ -26,6 +34,10 @@
         "command": "expo start --ios",
         "cwd": "apps/mobile"
       },
+      "dependsOn": [
+        "index-images",
+        "^index-images"
+      ],
       "continuous": true,
       "cache": false
     },
@@ -35,8 +47,31 @@
         "command": "expo start --web",
         "cwd": "apps/mobile"
       },
+      "dependsOn": [
+        "index-images",
+        "^index-images"
+      ],
       "continuous": true,
       "cache": false
+    },
+    "index-images": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsx scripts/index-images.ts",
+        "cwd": "apps/mobile"
+      },
+      "inputs": [
+        "imageIndexer",
+        "{projectRoot}/assets/svg/**",
+        "{projectRoot}/assets/images/**",
+        "!{projectRoot}/assets/images/converted-svg/**",
+        "{projectRoot}/scripts/index-images.ts"
+      ],
+      "outputs": [
+        "{projectRoot}/src/lib/image-sources.ts",
+        "{projectRoot}/assets/images/converted-svg"
+      ],
+      "cache": true
     },
     "typecheck": {
       "executor": "nx:run-commands",
@@ -44,7 +79,15 @@
         "command": "tsc --noEmit",
         "cwd": "apps/mobile"
       },
-      "inputs": ["default", "^default", "{projectRoot}/tsconfig.json"],
+      "dependsOn": [
+        "index-images",
+        "^index-images"
+      ],
+      "inputs": [
+        "default",
+        "^default",
+        "{projectRoot}/tsconfig.json"
+      ],
       "cache": true
     }
   }

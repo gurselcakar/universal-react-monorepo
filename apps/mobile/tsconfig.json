@@ -13,5 +13,10 @@
     "babel.config.js",
     "nativewind-env.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "../../tooling/image-indexer"
+    }
+  ]
 }

@@ -1,4 +1,5 @@
 const path = require('path')
+
 const { getDefaultConfig } = require('expo/metro-config')
 const { withNativeWind } = require('nativewind/metro')
 
@@ -12,7 +13,23 @@ const packageSrcRoots = {
   '@chalkboard/shared-frontend': path.join(workspaceRoot, 'packages/shared-frontend/src'),
 }
 
+// Map workspace package asset paths to their physical directories
+const packageAssetRoots = {
+  '@chalkboard/shared-frontend/assets': path.join(
+    workspaceRoot,
+    'packages/shared-frontend/assets',
+  ),
+}
+
 config.resolver.resolveRequest = (context, moduleName, platform) => {
+  // Check asset paths first (more specific match)
+  for (const [prefix, assetRoot] of Object.entries(packageAssetRoots)) {
+    if (moduleName.startsWith(prefix + '/')) {
+      const subPath = moduleName.slice(prefix.length + 1)
+      return context.resolveRequest(context, path.join(assetRoot, subPath), platform)
+    }
+  }
+
   for (const [pkgName, srcRoot] of Object.entries(packageSrcRoots)) {
     if (moduleName === pkgName) {
       return context.resolveRequest(context, path.join(srcRoot, 'index.ts'), platform)

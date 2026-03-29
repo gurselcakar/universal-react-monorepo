@@ -11,14 +11,19 @@
     "@trpc/client": "^11.16.0",
     "@trpc/react-query": "^11.16.0",
     "@trpc/server": "^11.16.0",
+    "better-auth": "^1.5.6",
     "next": "16.1.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native-web": "~0.21.1",
     "superjson": "^2.2.6"
   },
+  "scripts": {
+    "index-images": "tsx scripts/index-images.ts"
+  },
   "devDependencies": {
     "@chalkboard/eslint-config-base": "workspace:*",
+    "@chalkboard/image-indexer": "workspace:*",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -28,6 +33,7 @@
     "eslint-config-next": "16.1.6",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

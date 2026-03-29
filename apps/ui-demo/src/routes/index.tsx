@@ -1,4 +1,4 @@
-import { Button, Text } from '@chalkboard/shared-frontend'
+import { Button, SignInForm, Text } from '@chalkboard/shared-frontend'
 import { createFileRoute } from '@tanstack/react-router'
 import type { ComponentProps } from 'react'
 
@@ -321,6 +321,11 @@ const ComponentLibrary = () => (
         <TypographySection />
         <ButtonsSection />
         <ColorsSection />
+        <SignInForm
+          onEmailSignIn={async () => null}
+          onGoogleSignIn={async () => null}
+          onNavigateToSignUp={() => null}
+        />
       </main>
     </div>
   </div>

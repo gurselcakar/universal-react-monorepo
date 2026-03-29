@@ -1,7 +1,7 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { SignUpForm } from '@chalkboard/shared-frontend'
+import { useRouter } from 'next/navigation'
 
 import { authClient } from '../../../lib/auth-client'
 

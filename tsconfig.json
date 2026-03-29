@@ -2,11 +2,8 @@
   "extends": "./tsconfig.base.json",
   "files": [],
   "references": [
-    { "path": "./apps/mobile" },
-    { "path": "./apps/ui-demo" },
-    { "path": "./apps/web" },
-    { "path": "./packages/api" },
-    { "path": "./packages/shared-frontend" },
-    { "path": "./packages/theme" }
+    {
+      "path": "./tooling/image-indexer"
+    }
   ]
 }

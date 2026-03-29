@@ -1,5 +1,6 @@
 'use client'
 
+import { Image } from 'expo-image'
 import { useRef, useState } from 'react'
 import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native'
 
@@ -51,8 +52,11 @@ export const SignInForm = ({
         disabled={loading}
         className="border-border active:bg-background flex-row items-center justify-center gap-3 rounded-md border bg-white px-4 py-3 shadow-sm disabled:opacity-50"
       >
-        {googleIcon}
-        <Text className="text-foreground-muted text-sm font-medium">Continue with Google</Text>
+        <Image
+          source={require('../../assets/images/nativewind-logo.jpeg')}
+          style={{ width: 20, height: 20 }}
+        />
+        <Text className="text-foreground-muted text-sm font-medium">Continue a with Google</Text>
       </Pressable>
 
       {/* Divider */}

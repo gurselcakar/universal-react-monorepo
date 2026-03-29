@@ -1,7 +1,7 @@
+import { SignUpForm } from '@chalkboard/shared-frontend'
 import { router } from 'expo-router'
 import { KeyboardAvoidingView, Platform, View } from 'react-native'
 
-import { SignUpForm } from '@chalkboard/shared-frontend'
 
 import { authClient } from '../../lib/auth-client'
 

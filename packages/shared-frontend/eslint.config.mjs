@@ -9,6 +9,6 @@ export default [
     rules: { '@typescript-eslint/no-require-imports': 'off' },
   },
   {
-    ignores: ['dist/*', 'node_modules/**', '*.config.mjs'],
+    ignores: ['dist/*', 'node_modules/**', '*.config.mjs', 'scripts/**'],
   },
 ]

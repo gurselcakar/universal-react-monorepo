@@ -1,0 +1,14 @@
+{
+  "name": "@chalkboard/image-indexer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "glob": "^11.0.0",
+    "sharp": "^0.34.0"
+  }
+}

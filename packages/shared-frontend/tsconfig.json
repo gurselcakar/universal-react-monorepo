@@ -5,6 +5,11 @@
       "@chalkboard/shared-frontend/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "nativewind-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*", "scripts/**/*", "nativewind-env.d.ts"],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "../../tooling/image-indexer"
+    }
+  ]
 }

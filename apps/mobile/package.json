@@ -3,19 +3,25 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
+    "@better-auth/expo": "^1.5.6",
+    "@chalkboard/shared-frontend": "workspace:*",
     "@expo/metro-runtime": "~55.0.6",
     "@packages/theme": "workspace:*",
+    "@rn-primitives/portal": "^1.4.0",
+    "better-auth": "^1.5.6",
     "expo": "~55.0.4",
     "expo-blur": "~55.0.8",
+    "expo-constants": "^55.0.9",
     "expo-font": "~55.0.4",
     "expo-haptics": "~55.0.8",
     "expo-image": "~55.0.5",
     "expo-linking": "~55.0.7",
+    "expo-network": "^55.0.9",
     "expo-router": "~55.0.3",
+    "expo-secure-store": "^55.0.9",
     "expo-splash-screen": "~55.0.10",
     "expo-status-bar": "~55.0.4",
     "expo-symbols": "~55.0.4",
-    "@rn-primitives/portal": "^1.4.0",
     "expo-system-ui": "~55.0.9",
     "expo-web-browser": "~55.0.9",
     "nativewind": "^4.1.23",
@@ -28,20 +34,22 @@
     "react-native-screens": "~4.23.0",
     "react-native-web": "~0.21.1",
     "react-native-webview": "13.16.0",
-    "react-native-worklets": "^0.7.2",
-    "@chalkboard/shared-frontend": "workspace:*"
+    "react-native-worklets": "^0.7.2"
   },
   "devDependencies": {
     "@chalkboard/eslint-config-react-native": "workspace:*",
+    "@chalkboard/image-indexer": "workspace:*",
     "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~55.0.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.18",
+    "tsx": "^4.21.0",
     "typescript": "~5.9.2"
   },
   "private": true,
   "scripts": {
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "index-images": "tsx scripts/index-images.ts"
   }
 }

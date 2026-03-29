@@ -6,7 +6,7 @@ const eslintConfig = [
   ...base,
   ...nextVitals,
   ...withTypeChecking(import.meta.dirname),
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'scripts/**']),
 ]
 
 export default eslintConfig

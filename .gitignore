@@ -23,3 +23,15 @@ vite.config.*.timestamp*
 .squad/sessions/
 # Squad: SubSquad activation file (local to this machine)
 .squad-workstream
+
+# Image Indexer: generated files
+packages/shared-frontend/assets/images/converted-svg/
+packages/shared-frontend/src/lib/image-sources.ts
+packages/shared-frontend/src/lib/image-sources.native.ts
+packages/shared-frontend/src/lib/image-sources.web.ts
+apps/web/public/images/converted-svg/
+apps/web/public/shared/
+apps/web/src/lib/image-sources.ts
+apps/ui-demo/public/shared/
+apps/mobile/assets/images/converted-svg/
+apps/mobile/src/lib/image-sources.ts

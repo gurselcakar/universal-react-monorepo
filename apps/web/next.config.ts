@@ -1,5 +1,11 @@
+import path from 'path'
 import type { NextConfig } from 'next'
+import { config } from 'dotenv'
 import webpack from 'webpack'
+
+if (process.env.NODE_ENV !== 'production') {
+  config({ path: path.resolve(__dirname, '../../.env.local') })
+}
 
 const nextConfig: NextConfig = {
   transpilePackages: [

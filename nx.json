@@ -27,7 +27,8 @@
     ],
     "sharedGlobals": [
       "{workspaceRoot}/tsconfig.base.json",
-      "{workspaceRoot}/tsconfig.json"
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/.env*"
     ],
     "imageIndexer": [
       "{workspaceRoot}/tooling/image-indexer/src/**",

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["ES2017"],
+    "types": ["node"],
     "noEmit": true,
     "paths": {
       "@chalkboard/api/*": ["./src/*"]

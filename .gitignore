@@ -38,3 +38,8 @@ apps/mobile/src/lib/image-sources.ts
 
 # MacOS
 .DS_Store
+
+# Env
+.env
+.env.*
+!.env.example

@@ -1,6 +1,4 @@
-export { Card } from './card'
 export { Badge } from './badge'
-export { Input } from './input'
 export * from './ui'
 export { trpc } from './lib/trpc'
 export { sharedFrontendEnv } from './lib/env'

@@ -37,6 +37,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@chalkboard/ui-demo': path.resolve(__dirname, './src'),
+      'lucide-react-native': path.resolve(__dirname, 'node_modules/lucide-react'),
     },
   },
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],

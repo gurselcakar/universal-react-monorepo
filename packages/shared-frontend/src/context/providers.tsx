@@ -31,8 +31,7 @@ export const TRPCProvider = ({ children }: { children: React.ReactNode }) => {
         httpBatchLink({
           url: `${sharedFrontendEnv.PUBLIC_API_BASE_URL}/api/trpc`,
           transformer: superjson,
-          fetch: (url, options) =>
-            fetch(url, { ...options, credentials: 'include' }),
+          fetch: (url, options) => fetch(url, { ...options, credentials: 'include' }),
         }),
       ],
     }),

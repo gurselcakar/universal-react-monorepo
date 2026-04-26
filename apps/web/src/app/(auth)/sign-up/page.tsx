@@ -1,6 +1,6 @@
 'use client'
 
-import { SignUpForm } from '@chalkboard/shared-frontend'
+import { Card, CardContent, SignUpForm } from '@chalkboard/shared-frontend'
 import { useRouter } from 'next/navigation'
 
 import { authClient } from '../../../lib/auth-client'
@@ -21,13 +21,16 @@ export default function SignUpPage() {
   return (
     <div className="w-full max-w-sm">
       <div className="mb-8 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">Create an account</h1>
-        <p className="mt-2 text-sm text-foreground-muted">Get started for free</p>
+        <h1 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+          Create an account
+        </h1>
+        <p className="mt-2 font-body text-sm text-foreground-muted">Get started for free</p>
       </div>
 
-      <div className="rounded-lg border border-border bg-white p-8 shadow-sm">
-        <SignUpForm
-          googleIcon={GoogleIcon}
+      <Card className="p-8">
+        <CardContent className="p-0">
+          <SignUpForm
+            googleIcon={GoogleIcon}
           onEmailSignUp={async (name, email, password) => {
             const { error } = await authClient.signUp.email({
               name,
@@ -48,8 +51,9 @@ export default function SignUpPage() {
             return error?.message ?? null
           }}
           onNavigateToSignIn={() => router.push('/sign-in')}
-        />
-      </div>
+          />
+        </CardContent>
+      </Card>
     </div>
   )
 }

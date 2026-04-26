@@ -1,8 +1,9 @@
 'use client'
 
-import { Image } from 'expo-image'
-import { useRef, useState } from 'react'
-import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native'
+import * as React from 'react'
+import { ActivityIndicator, Pressable, View } from 'react-native'
+
+import { Button, Input, Text } from '../ui'
 
 import type { SignInFormProps } from './types'
 
@@ -12,12 +13,12 @@ export const SignInForm = ({
   onNavigateToSignUp,
   googleIcon,
 }: SignInFormProps) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState<string | null>(null)
 
-  const passwordRef = useRef<TextInput>(null)
+  const passwordRef = React.useRef<React.ComponentRef<typeof Input>>(null)
 
   const handleEmailSignIn = async () => {
     if (!email.trim() || !password.trim()) {
@@ -47,30 +48,28 @@ export const SignInForm = ({
   return (
     <View className="gap-4">
       {/* Google button */}
-      <Pressable
+      <Button
         onPress={handleGoogleSignIn}
         disabled={loading}
-        className="border-border active:bg-background flex-row items-center justify-center gap-3 rounded-md border bg-white px-4 py-3 shadow-sm disabled:opacity-50"
+        variant="secondary"
+        size="lg"
+        className="w-full"
       >
-        <Image
-          source={require('../../assets/images/nativewind-logo.jpeg')}
-          style={{ width: 20, height: 20 }}
-        />
-        <Text className="text-foreground-muted text-sm font-medium">Continue a with Google</Text>
-      </Pressable>
+        {googleIcon}
+        <Text>Continue with Google</Text>
+      </Button>
 
       {/* Divider */}
       <View className="flex-row items-center gap-3">
         <View className="bg-border h-px flex-1" />
-        <Text className="text-foreground-faint text-xs">or</Text>
+        <Text variant="small" className="text-foreground-faint">or</Text>
         <View className="bg-border h-px flex-1" />
       </View>
 
       {/* Email field */}
       <View className="gap-1.5">
-        <Text className="text-foreground-muted text-sm font-medium">Email</Text>
-        <TextInput
-          className="border-border text-foreground rounded-md border bg-white px-4 py-3 text-base"
+        <Text variant="small" className="font-medium text-foreground-muted">Email</Text>
+        <Input
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
@@ -81,15 +80,16 @@ export const SignInForm = ({
           onSubmitEditing={() => passwordRef.current?.focus()}
           placeholder="you@example.com"
           placeholderTextColor="#A39E97"
+          isInvalid={error !== null}
+          size="lg"
         />
       </View>
 
       {/* Password field */}
       <View className="gap-1.5">
-        <Text className="text-foreground-muted text-sm font-medium">Password</Text>
-        <TextInput
+        <Text variant="small" className="font-medium text-foreground-muted">Password</Text>
+        <Input
           ref={passwordRef}
-          className="border-border text-foreground rounded-md border bg-white px-4 py-3 text-base"
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -98,37 +98,40 @@ export const SignInForm = ({
           onSubmitEditing={handleEmailSignIn}
           placeholder="••••••••"
           placeholderTextColor="#A39E97"
+          isInvalid={error !== null}
+          size="lg"
         />
       </View>
 
       {/* Error banner */}
       {error !== null && (
         <View
-          className="rounded-md border border-red-200 bg-red-50 px-4 py-3"
+          className="border-destructive/30 bg-destructive/10 rounded-sm border px-4 py-3"
           accessibilityRole="alert"
         >
-          <Text className="text-sm text-red-700">{error}</Text>
+          <Text variant="small" className="text-destructive">{error}</Text>
         </View>
       )}
 
       {/* Submit button */}
-      <Pressable
+      <Button
         onPress={handleEmailSignIn}
         disabled={loading}
-        className="bg-primary w-full items-center justify-center rounded-lg px-4 py-3.5 active:opacity-90"
+        size="lg"
+        className="mt-2 w-full"
       >
         {loading ? (
           <ActivityIndicator color="white" size="small" />
         ) : (
-          <Text className="text-primary-foreground text-base font-semibold">Sign in</Text>
+          <Text>Sign in</Text>
         )}
-      </Pressable>
+      </Button>
 
       {/* Footer link */}
       <Pressable onPress={onNavigateToSignUp} className="mt-2 items-center">
-        <Text className="text-foreground-muted text-sm">
+        <Text variant="small" className="text-foreground-muted">
           {"Don't have an account? "}
-          <Text className="text-foreground font-semibold">Sign up</Text>
+          <Text variant="small" className="text-foreground font-semibold">Sign up</Text>
         </Text>
       </Pressable>
     </View>

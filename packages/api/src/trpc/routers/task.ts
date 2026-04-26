@@ -12,10 +12,7 @@ export const taskRouter = router({
   getById: authenticatedProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ ctx, input }) => {
-      const [result] = await ctx.db
-        .select()
-        .from(tasks)
-        .where(eq(tasks.id, input.id))
+      const [result] = await ctx.db.select().from(tasks).where(eq(tasks.id, input.id))
       return result ?? null
     }),
 

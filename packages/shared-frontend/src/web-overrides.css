@@ -1,0 +1,9 @@
+/* Web only css overrides for consumption in web and ui demo package */
+
+/* Fix React Native Web ActivityIndicator wobble — the spinning SVG child
+  needs to be centred within its animated wrapper. */
+[role='progressbar'] > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

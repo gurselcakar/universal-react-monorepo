@@ -1,10 +1,72 @@
-import { Button, SignInForm, Text } from '@chalkboard/shared-frontend'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardSeparator,
+  CardTitle,
+  Input,
+  SignInForm,
+  Text,
+} from '@chalkboard/shared-frontend'
 import { createFileRoute } from '@tanstack/react-router'
 import type { ComponentProps } from 'react'
+import { useEffect, useState } from 'react'
 
 type TextVariant = NonNullable<ComponentProps<typeof Text>['variant']>
 type ButtonVariant = NonNullable<ComponentProps<typeof Button>['variant']>
 type ButtonSize = NonNullable<ComponentProps<typeof Button>['size']>
+
+// ─── Dark mode ───────────────────────────────────────────────────────────────
+
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === 'undefined') return false
+    const stored = localStorage.getItem('ui-demo-dark')
+    if (stored !== null) return stored === 'true'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark)
+    localStorage.setItem('ui-demo-dark', String(isDark))
+  }, [isDark])
+
+  return { isDark, toggle: () => setIsDark((v) => !v) }
+}
+
+const SunIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+  </svg>
+)
+
+const MoonIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+)
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -64,7 +126,7 @@ const COLORS: Array<{
     tokens: [
       { name: 'background', bg: 'bg-background', hex: '#FAF8F4', bordered: true },
       { name: 'background-raised', bg: 'bg-background-raised', hex: '#F3F0EA', bordered: true },
-      { name: 'background-sunken', bg: 'bg-background-sunken', hex: '#EDEAE4', bordered: true },
+      { name: 'background-feature', bg: 'bg-background-feature', hex: '#FAF9F6', bordered: true },
       { name: 'foreground', bg: 'bg-foreground', hex: '#2A2623' },
       { name: 'foreground-muted', bg: 'bg-foreground-muted', hex: '#6B6560' },
       { name: 'foreground-faint', bg: 'bg-foreground-faint', hex: '#A39E97' },
@@ -128,7 +190,7 @@ const TypographySection = () => (
         <div
           key={variant}
           className={[
-            'hover:bg-background-sunken flex items-start gap-6 px-6 py-5 transition-colors',
+            'hover:bg-background-feature flex items-start gap-6 px-6 py-5 transition-colors',
             i !== TYPE_ROWS.length - 1 ? 'border-border border-b' : '',
             i % 2 === 0 ? 'bg-background' : 'bg-background-raised',
           ].join(' ')}
@@ -240,6 +302,162 @@ const ButtonsSection = () => (
   </section>
 )
 
+const CardSection = () => (
+  <section className="border-border border-t py-16" id="cards">
+    <div className="mb-10">
+      <SectionNumber n="04" />
+      <SectionHeading>Cards</SectionHeading>
+      <p className="text-foreground-muted font-body mt-2 text-sm">
+        Composable surface primitive · entity accent stripe · shadow variants · pressable
+      </p>
+    </div>
+
+    {/* Shadow variants */}
+    <div className="mb-12">
+      <SubLabel>Shadow variants</SubLabel>
+      <div className="grid gap-4 sm:grid-cols-3">
+        {(['none', 'sm', 'md', 'lg'] as const).map((shadow) => (
+          <div key={shadow} className="flex flex-col gap-2">
+            <Card shadow={shadow}>
+              <CardHeader>
+                <CardTitle>Launch MVP</CardTitle>
+                <CardDescription>Due in 3 days · 4 subtasks</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Text variant="small" className="text-foreground-muted">
+                  Define scope, assign owners, and ship the first working build to staging.
+                </Text>
+              </CardContent>
+            </Card>
+            <code className="text-foreground-faint font-mono text-[11px]">{`shadow="${shadow}"`}</code>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Entity accent stripe */}
+    <div className="mb-12">
+      <SubLabel>Entity variants — accent stripe + tinted surface</SubLabel>
+      <div className="grid gap-6 sm:grid-cols-3">
+        <div className="flex flex-col gap-2">
+          <Card entity="task" tinted>
+            <CardHeader>
+              <CardTitle>Design sprint kickoff</CardTitle>
+              <CardDescription>Due today · 2 subtasks</CardDescription>
+            </CardHeader>
+            <CardSeparator />
+            <CardFooter>
+              <Text variant="caption" className="text-task">
+                Task
+              </Text>
+              <Button variant="task" size="sm">
+                <Text>Mark done</Text>
+              </Button>
+            </CardFooter>
+          </Card>
+          <code className="text-foreground-faint font-mono text-[11px]">entity="task" tinted</code>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Card entity="habit" tinted>
+            <CardHeader>
+              <CardTitle>Drink 2L Water</CardTitle>
+              <CardDescription>14 day streak · logged today</CardDescription>
+            </CardHeader>
+            <CardSeparator />
+            <CardFooter>
+              <Text variant="caption" className="text-habit">
+                Habit
+              </Text>
+              <Button variant="habit" size="sm">
+                <Text>Log</Text>
+              </Button>
+            </CardFooter>
+          </Card>
+          <code className="text-foreground-faint font-mono text-[11px]">entity="habit" tinted</code>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Card entity="goal" tinted>
+            <CardHeader>
+              <CardTitle>Launch MVP by Q2</CardTitle>
+              <CardDescription>87% complete · on track</CardDescription>
+            </CardHeader>
+            <CardSeparator />
+            <CardFooter>
+              <Text variant="caption" className="text-goal">
+                Goal
+              </Text>
+              <Button variant="goal" size="sm">
+                <Text>View</Text>
+              </Button>
+            </CardFooter>
+          </Card>
+          <code className="text-foreground-faint font-mono text-[11px]">entity="goal" tinted</code>
+        </div>
+      </div>
+    </div>
+
+    {/* Accent stripe only (no tint) */}
+    <div className="mb-12">
+      <SubLabel>Entity accent stripe — no tint</SubLabel>
+      <div className="grid gap-4 sm:grid-cols-3">
+        {(['task', 'habit', 'goal'] as const).map((entity) => (
+          <Card key={entity} entity={entity}>
+            <CardHeader>
+              <CardTitle>
+                {entity === 'task'
+                  ? 'Review PRD'
+                  : entity === 'habit'
+                    ? 'Morning Run'
+                    : 'Ship v1.0'}
+              </CardTitle>
+              <CardDescription>3 items remaining</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Text variant="small" className="text-foreground-muted">
+                Background surface unchanged — only the top accent stripe carries the entity color.
+              </Text>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+
+    {/* Pressable */}
+    <div className="mb-12">
+      <SubLabel>Pressable — onPress enables hover lift + active opacity</SubLabel>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Card entity="task" onPress={() => alert('Card pressed')}>
+          <CardHeader>
+            <CardTitle>Click me</CardTitle>
+            <CardDescription>Hover to see lift · click for press state</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Text variant="small" className="text-foreground-muted">
+              Pass <Text variant="code">onPress</Text> to promote the card into a{' '}
+              <Text variant="code">Pressable</Text> with built-in hover and active states.
+            </Text>
+          </CardContent>
+        </Card>
+
+        {/* No entity — plain card */}
+        <Card shadow="sm">
+          <CardHeader>
+            <CardTitle>Plain card</CardTitle>
+            <CardDescription>No entity · shadow sm · no accent</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Text variant="small" className="text-foreground-muted">
+              Default surface card — no entity stripe, no tint. Clean container for any content.
+            </Text>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+)
+
 const ColorsSection = () => (
   <section className="border-border border-t py-16" id="colors">
     <div className="mb-10">
@@ -273,63 +491,220 @@ const ColorsSection = () => (
   </section>
 )
 
+const InputSection = () => (
+  <section className="border-border border-t py-16" id="inputs">
+    <div className="mb-10">
+      <SectionNumber n="05" />
+      <SectionHeading>Inputs</SectionHeading>
+      <p className="text-foreground-muted font-body mt-2 text-sm">
+        Entity-aware focus rings · 3 sizes · warm parchment surface · brand shadows
+      </p>
+    </div>
+
+    {/* Sizes */}
+    <div className="mb-12">
+      <SubLabel>Sizes</SubLabel>
+      <div className="flex max-w-sm flex-col gap-4">
+        <div className="flex flex-col gap-1.5">
+          <Input size="sm" placeholder="Small — 32px height" />
+          <code className="text-foreground-faint font-mono text-[11px]">size="sm"</code>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Input placeholder="Default — 40px height" />
+          <code className="text-foreground-faint font-mono text-[11px]">size="default"</code>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Input size="lg" placeholder="Large — 48px height" />
+          <code className="text-foreground-faint font-mono text-[11px]">size="lg"</code>
+        </div>
+      </div>
+    </div>
+
+    {/* States */}
+    <div className="mb-12">
+      <SubLabel>States — click to trigger focus ring</SubLabel>
+      <div className="grid max-w-2xl gap-4 sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
+          <Input placeholder="Empty placeholder" />
+          <code className="text-foreground-faint font-mono text-[11px]">default</code>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Input defaultValue="With a pre-filled value" />
+          <code className="text-foreground-faint font-mono text-[11px]">with value</code>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Input placeholder="Cannot edit this field" editable={false} />
+          <code className="text-foreground-faint font-mono text-[11px]">
+            editable=false (disabled)
+          </code>
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <Input placeholder="Field has an error" errorMessage="This field is required." />
+          <code className="text-foreground-faint font-mono text-[11px]">errorMessage</code>
+        </div>
+      </div>
+    </div>
+
+    {/* Entity context — hero */}
+    <div className="mb-12">
+      <SubLabel>Entity context — focus each input to see entity-tinted rings</SubLabel>
+      <div className="grid gap-6 sm:grid-cols-3">
+        {/* Task */}
+        <div className="bg-task-light border-task/20 flex flex-col gap-4 rounded-md border p-5">
+          <div>
+            <p className="text-task font-mono text-[10px] uppercase tracking-widest">Task</p>
+            <Text variant="h3">New Task</Text>
+          </div>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Title</label>
+              <Input entity="task" placeholder="Design the onboarding flow" />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Due date</label>
+              <Input entity="task" size="sm" placeholder="2026-04-15" />
+            </div>
+          </div>
+          <code className="text-task/50 font-mono text-[10px]">entity="task"</code>
+        </div>
+
+        {/* Habit */}
+        <div className="bg-habit-light border-habit/20 flex flex-col gap-4 rounded-md border p-5">
+          <div>
+            <p className="text-habit font-mono text-[10px] uppercase tracking-widest">Habit</p>
+            <Text variant="h3">New Habit</Text>
+          </div>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Name</label>
+              <Input entity="habit" placeholder="Drink 2L water daily" />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Frequency</label>
+              <Input entity="habit" size="sm" placeholder="Daily at 08:00" />
+            </div>
+          </div>
+          <code className="text-habit/50 font-mono text-[10px]">entity="habit"</code>
+        </div>
+
+        {/* Goal */}
+        <div className="bg-goal-light border-goal/20 flex flex-col gap-4 rounded-md border p-5">
+          <div>
+            <p className="text-goal font-mono text-[10px] uppercase tracking-widest">Goal</p>
+            <Text variant="h3">New Goal</Text>
+          </div>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Title</label>
+              <Input entity="goal" placeholder="Launch MVP by Q2" />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-foreground-muted font-body text-xs">Target date</label>
+              <Input entity="goal" size="sm" placeholder="2026-06-30" />
+            </div>
+          </div>
+          <code className="text-goal/50 font-mono text-[10px]">entity="goal"</code>
+        </div>
+      </div>
+    </div>
+
+    {/* Validation */}
+    <div className="mb-12">
+      <SubLabel>Validation — errorMessage prop (color + ! prefix, no color-only reliance)</SubLabel>
+      <div className="grid max-w-2xl gap-6 sm:grid-cols-2">
+        <div className="flex flex-col gap-1.5">
+          <label className="text-foreground font-body text-sm font-medium">
+            Task title <span className="text-destructive">*</span>
+          </label>
+          <Input placeholder="Enter a task title" errorMessage="Task title is required." />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <label className="text-foreground font-body text-sm font-medium">
+            Habit name <span className="text-destructive">*</span>
+          </label>
+          <Input
+            entity="habit"
+            defaultValue="hi"
+            errorMessage="Name must be at least 3 characters."
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-const ComponentLibrary = () => (
-  <div className="bg-background min-h-screen">
-    {/* Header */}
-    <header className="bg-foreground sticky top-0 z-50 flex h-14 items-center justify-between border-b border-white/10 px-8">
-      <div className="flex items-center gap-3">
-        <span className="font-display text-background text-[17px] font-semibold tracking-[-0.015em]">
-          Chalkboard
-        </span>
-        <span className="text-background/30 font-mono text-[11px]">UI</span>
-      </div>
-      <nav className="hidden items-center gap-6 sm:flex">
-        {['Typography', 'Buttons', 'Colors'].map((label, i) => (
-          <a
-            key={label}
-            href={`#${label.toLowerCase()}`}
-            className="text-background/40 hover:text-background/80 font-mono text-xs transition-colors"
+const ComponentLibrary = () => {
+  const { isDark, toggle } = useDarkMode()
+
+  return (
+    <div className="bg-background min-h-screen">
+      {/* Header */}
+      <header className="bg-foreground sticky top-0 z-50 flex h-14 items-center justify-between border-b border-white/10 px-8">
+        <div className="flex items-center gap-3">
+          <span className="font-display text-background text-[17px] font-semibold tracking-[-0.015em]">
+            Chalkboard
+          </span>
+          <span className="text-background/30 font-mono text-[11px]">UI</span>
+        </div>
+        <nav className="hidden items-center gap-6 sm:flex">
+          {['Typography', 'Buttons', 'Colors', 'Cards', 'Inputs'].map((label, i) => (
+            <a
+              key={label}
+              href={`#${label.toLowerCase()}`}
+              className="text-background/40 hover:text-background/80 font-mono text-xs transition-colors"
+            >
+              0{i + 1} {label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={toggle}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="text-background/50 hover:text-background/90 flex h-7 w-7 items-center justify-center rounded-md transition-colors"
           >
-            0{i + 1} {label}
-          </a>
-        ))}
-      </nav>
-      <code className="text-background/25 font-mono text-[11px]">v0.1.0</code>
-    </header>
+            {isDark ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <code className="text-background/25 font-mono text-[11px]">v0.1.0</code>
+        </div>
+      </header>
 
-    {/* Page hero */}
-    <div className="border-border bg-background-raised border-b px-8 py-12">
-      <div className="mx-auto max-w-5xl">
-        <p className="text-foreground-faint mb-2 font-mono text-xs tracking-widest">
-          Design System
-        </p>
-        <h1 className="font-display text-foreground text-5xl font-bold tracking-[-0.03em]">
-          Component Library
-        </h1>
-        <p className="text-foreground-muted font-body mt-3 max-w-xl text-base leading-relaxed">
-          All typography variants, button states, and brand color tokens derived from the Warm
-          Modernist design system.
-        </p>
+      {/* Page hero */}
+      <div className="border-border bg-background-raised border-b px-8 py-12">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-foreground-faint mb-2 font-mono text-xs tracking-widest">
+            Design System
+          </p>
+          <h1 className="font-display text-foreground text-5xl font-bold tracking-[-0.03em]">
+            Component Library
+          </h1>
+          <p className="text-foreground-muted font-body mt-3 max-w-xl text-base leading-relaxed">
+            All typography variants, button states, and brand color tokens derived from the Warm
+            Modernist design system.
+          </p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="px-8">
+        <main className="mx-auto max-w-5xl">
+          <TypographySection />
+          <ButtonsSection />
+          <ColorsSection />
+          <CardSection />
+          <InputSection />
+          <SignInForm
+            onEmailSignIn={async () => null}
+            onGoogleSignIn={async () => null}
+            onNavigateToSignUp={() => null}
+          />
+        </main>
       </div>
     </div>
-
-    {/* Content */}
-    <div className="px-8">
-      <main className="mx-auto max-w-5xl">
-        <TypographySection />
-        <ButtonsSection />
-        <ColorsSection />
-        <SignInForm
-          onEmailSignIn={async () => null}
-          onGoogleSignIn={async () => null}
-          onNavigateToSignUp={() => null}
-        />
-      </main>
-    </div>
-  </div>
-)
+  )
+}
 
 export const Route = createFileRoute('/')({
   component: ComponentLibrary,

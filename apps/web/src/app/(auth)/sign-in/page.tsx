@@ -1,6 +1,6 @@
 'use client'
 
-import { SignInForm } from '@chalkboard/shared-frontend'
+import { Card, CardContent, SignInForm } from '@chalkboard/shared-frontend'
 import { useRouter } from 'next/navigation'
 
 import { authClient } from '../../../lib/auth-client'
@@ -21,34 +21,38 @@ export default function SignInPage() {
   return (
     <div className="w-full max-w-sm">
       <div className="mb-8 text-center">
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">Welcome back</h1>
-        <p className="mt-2 text-sm text-foreground-muted">Sign in to your account</p>
+        <h1 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+          Welcome back
+        </h1>
+        <p className="mt-2 font-body text-sm text-foreground-muted">Sign in to your account</p>
       </div>
 
-      <div className="rounded-lg border border-border bg-white p-8 shadow-sm">
-        <SignInForm
-          googleIcon={GoogleIcon}
-          onEmailSignIn={async (email, password) => {
-            const { error } = await authClient.signIn.email({
-              email,
-              password,
-              callbackURL: '/',
-            })
-            if (error) return error.message ?? 'Sign in failed'
-            router.push('/')
-            router.refresh()
-            return null
-          }}
-          onGoogleSignIn={async () => {
-            const { error } = await authClient.signIn.social({
-              provider: 'google',
-              callbackURL: '/',
-            })
-            return error?.message ?? null
-          }}
-          onNavigateToSignUp={() => router.push('/sign-up')}
-        />
-      </div>
+      <Card className="p-8">
+        <CardContent className="p-0">
+          <SignInForm
+            googleIcon={GoogleIcon}
+            onEmailSignIn={async (email, password) => {
+              const { error } = await authClient.signIn.email({
+                email,
+                password,
+                callbackURL: '/',
+              })
+              if (error) return error.message ?? 'Sign in failed'
+              router.push('/')
+              router.refresh()
+              return null
+            }}
+            onGoogleSignIn={async () => {
+              const { error } = await authClient.signIn.social({
+                provider: 'google',
+                callbackURL: '/',
+              })
+              return error?.message ?? null
+            }}
+            onNavigateToSignUp={() => router.push('/sign-up')}
+          />
+        </CardContent>
+      </Card>
     </div>
   )
 }

@@ -26,7 +26,7 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   }, [session, isPending, segments, router])
 
   return <>{children}</>
-};
+}
 
 export default function RootLayout() {
   return (

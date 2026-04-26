@@ -1,7 +1,9 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { ActivityIndicator, Pressable, Text, TextInput, View } from 'react-native'
+import * as React from 'react'
+import { ActivityIndicator, Pressable, View } from 'react-native'
+
+import { Button, Input, Text } from '../ui'
 
 import type { SignUpFormProps } from './types'
 
@@ -11,14 +13,14 @@ export const SignUpForm = ({
   onNavigateToSignIn,
   googleIcon,
 }: SignUpFormProps) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState<string | null>(null)
 
-  const emailRef = useRef<TextInput>(null)
-  const passwordRef = useRef<TextInput>(null)
+  const emailRef = React.useRef<React.ComponentRef<typeof Input>>(null)
+  const passwordRef = React.useRef<React.ComponentRef<typeof Input>>(null)
 
   const handleEmailSignUp = async () => {
     if (!name.trim() || !email.trim() || !password.trim()) {
@@ -48,27 +50,32 @@ export const SignUpForm = ({
   return (
     <View className="gap-4">
       {/* Google button */}
-      <Pressable
+      <Button
         onPress={handleGoogleSignUp}
         disabled={loading}
-        className="border-border active:bg-background flex-row items-center justify-center gap-3 rounded-md border bg-white px-4 py-3 shadow-sm disabled:opacity-50"
+        variant="secondary"
+        size="lg"
+        className="w-full"
       >
         {googleIcon}
-        <Text className="text-foreground-muted text-sm font-medium">Continue with Google</Text>
-      </Pressable>
+        <Text>Continue with Google</Text>
+      </Button>
 
       {/* Divider */}
       <View className="flex-row items-center gap-3">
         <View className="bg-border h-px flex-1" />
-        <Text className="text-foreground-faint text-xs">or</Text>
+        <Text variant="small" className="text-foreground-faint">
+          or
+        </Text>
         <View className="bg-border h-px flex-1" />
       </View>
 
       {/* Name field */}
       <View className="gap-1.5">
-        <Text className="text-foreground-muted text-sm font-medium">Name</Text>
-        <TextInput
-          className="border-border text-foreground rounded-md border bg-white px-4 py-3 text-base"
+        <Text variant="small" className="text-foreground-muted font-medium">
+          Name
+        </Text>
+        <Input
           value={name}
           onChangeText={setName}
           autoComplete="name"
@@ -78,15 +85,18 @@ export const SignUpForm = ({
           onSubmitEditing={() => emailRef.current?.focus()}
           placeholder="Your name"
           placeholderTextColor="#A39E97"
+          isInvalid={error !== null}
+          size="lg"
         />
       </View>
 
       {/* Email field */}
       <View className="gap-1.5">
-        <Text className="text-foreground-muted text-sm font-medium">Email</Text>
-        <TextInput
+        <Text variant="small" className="text-foreground-muted font-medium">
+          Email
+        </Text>
+        <Input
           ref={emailRef}
-          className="border-border text-foreground rounded-md border bg-white px-4 py-3 text-base"
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
@@ -97,15 +107,18 @@ export const SignUpForm = ({
           onSubmitEditing={() => passwordRef.current?.focus()}
           placeholder="you@example.com"
           placeholderTextColor="#A39E97"
+          isInvalid={error !== null}
+          size="lg"
         />
       </View>
 
       {/* Password field */}
       <View className="gap-1.5">
-        <Text className="text-foreground-muted text-sm font-medium">Password</Text>
-        <TextInput
+        <Text variant="small" className="text-foreground-muted font-medium">
+          Password
+        </Text>
+        <Input
           ref={passwordRef}
-          className="border-border text-foreground rounded-md border bg-white px-4 py-3 text-base"
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -114,37 +127,35 @@ export const SignUpForm = ({
           onSubmitEditing={handleEmailSignUp}
           placeholder="••••••••"
           placeholderTextColor="#A39E97"
+          isInvalid={error !== null}
+          size="lg"
         />
       </View>
 
       {/* Error banner */}
       {error !== null && (
         <View
-          className="rounded-md border border-red-200 bg-red-50 px-4 py-3"
+          className="border-destructive/30 bg-destructive/10 rounded-sm border px-4 py-3"
           accessibilityRole="alert"
         >
-          <Text className="text-sm text-red-700">{error}</Text>
+          <Text variant="small" className="text-destructive">
+            {error}
+          </Text>
         </View>
       )}
 
       {/* Submit button */}
-      <Pressable
-        onPress={handleEmailSignUp}
-        disabled={loading}
-        className="bg-primary w-full items-center justify-center rounded-lg px-4 py-3.5 active:opacity-90"
-      >
-        {loading ? (
-          <ActivityIndicator color="white" size="small" />
-        ) : (
-          <Text className="text-primary-foreground text-base font-semibold">Create account</Text>
-        )}
-      </Pressable>
+      <Button onPress={handleEmailSignUp} disabled={loading} size="lg" className="mt-2 w-full">
+        {loading ? <ActivityIndicator color="white" size="small" /> : <Text>Create account</Text>}
+      </Button>
 
       {/* Footer link */}
       <Pressable onPress={onNavigateToSignIn} className="mt-2 items-center">
-        <Text className="text-foreground-muted text-sm">
+        <Text variant="small" className="text-foreground-muted">
           {'Already have an account? '}
-          <Text className="text-foreground font-semibold">Sign in</Text>
+          <Text variant="small" className="text-foreground font-semibold">
+            Sign in
+          </Text>
         </Text>
       </Pressable>
     </View>

@@ -9,7 +9,7 @@ export const lightColors = {
   // Surface
   background: 'hsl(40 37% 97%)', // #FAF8F4 — canvas
   'background-raised': 'hsl(40 27% 94%)', // #F3F0EA — canvas-raised
-  'background-sunken': 'hsl(40 20% 91%)', // #EDEAE4 — canvas-sunken
+  'background-feature': 'hsl(40 20% 99%)', // #fdfcfa — canvas-feature
 
   // Text
   foreground: 'hsl(26 9% 15%)', // #2A2623 — ink
@@ -56,7 +56,7 @@ export const darkColors = {
   // Surface
   background: 'hsl(40 12% 10%)', // #1C1A16 — canvas dark
   'background-raised': 'hsl(24 7% 14%)', // #252220 — canvas-raised dark
-  'background-sunken': 'hsl(43 19% 7%)', // #16140F — canvas-sunken dark
+  'background-feature': 'hsl(40 10% 17%)', // #2C2A26 — canvas-feature dark (elevated above cards)
 
   // Text
   foreground: 'hsl(38 23% 91%)', // #EDE9E2 — ink dark

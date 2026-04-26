@@ -20,7 +20,6 @@
   "devDependencies": {
     "@chalkboard/eslint-config-base": "workspace:*",
     "@chalkboard/prettier-config": "workspace:*",
-    "@github/copilot-sdk": "^0.2.0",
     "@nx/eslint": "22.6.1",
     "@nx/next": "22.6.1",
     "@nx/vite": "22.6.1",
@@ -45,15 +44,7 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
-      "unrs-resolver",
-      "@bradygaster/squad-cli",
-      "@github/copilot-sdk",
-      "vscode-jsonrpc"
+      "unrs-resolver"
     ]
-  },
-  "dependencies": {
-    "@bradygaster/squad-cli": "^0.9.1",
-    "@github/copilot-sdk": "^0.2.0",
-    "vscode-jsonrpc": "^8.2.1"
   }
 }

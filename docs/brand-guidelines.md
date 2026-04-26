@@ -38,16 +38,16 @@ Our palette is drawn from natural materials — clay, slate, parchment, forest c
 
 #### Surface & Text
 
-| Token             | Hex       | Usage                                                  |
-| ----------------- | --------- | ------------------------------------------------------ |
-| `--canvas`        | `#FAF8F4` | Primary background. Warm parchment — never pure white. |
-| `--canvas-raised` | `#F3F0EA` | Cards, modals, elevated surfaces.                      |
-| `--canvas-sunken` | `#EDEAE4` | Input fields, code blocks, inset areas.                |
-| `--ink`           | `#2A2623` | Primary text. Warm near-black — never `#000`.          |
-| `--ink-muted`     | `#6B6560` | Secondary text, timestamps, metadata.                  |
-| `--ink-faint`     | `#A39E97` | Placeholders, disabled states, tertiary info.          |
-| `--border`        | `#DDD8D0` | Subtle dividers and card borders.                      |
-| `--border-strong` | `#C4BEB5` | Active/focused borders, stronger separation.           |
+| Token              | Hex       | Usage                                                  |
+| ------------------ | --------- | ------------------------------------------------------ |
+| `--canvas`         | `#FAF8F4` | Primary background. Warm parchment — never pure white. |
+| `--canvas-raised`  | `#F3F0EA` | Cards, modals, elevated surfaces.                      |
+| `--canvas-feature` | `#EDEAE4` | Input areas                                            |
+| `--ink`            | `#2A2623` | Primary text. Warm near-black — never `#000`.          |
+| `--ink-muted`      | `#6B6560` | Secondary text, timestamps, metadata.                  |
+| `--ink-faint`      | `#A39E97` | Placeholders, disabled states, tertiary info.          |
+| `--border`         | `#DDD8D0` | Subtle dividers and card borders.                      |
+| `--border-strong`  | `#C4BEB5` | Active/focused borders, stronger separation.           |
 
 #### Entity Colors — The Three Voices
 
@@ -76,16 +76,16 @@ Each entity type owns a color that runs through every interaction associated wit
 
 Dark mode flips the canvas while preserving warmth. No blue-black. No pure `#000`. Think: mahogany desk at midnight.
 
-| Token             | Light     | Dark      |
-| ----------------- | --------- | --------- |
-| `--canvas`        | `#FAF8F4` | `#1C1A16` |
-| `--canvas-raised` | `#F3F0EA` | `#252220` |
-| `--canvas-sunken` | `#EDEAE4` | `#16140F` |
-| `--ink`           | `#2A2623` | `#EDE9E2` |
-| `--ink-muted`     | `#6B6560` | `#9B958E` |
-| `--ink-faint`     | `#A39E97` | `#5E5951` |
-| `--border`        | `#DDD8D0` | `#3A3632` |
-| `--border-strong` | `#C4BEB5` | `#4E4943` |
+| Token              | Light     | Dark      |
+| ------------------ | --------- | --------- |
+| `--canvas`         | `#FAF8F4` | `#1C1A16` |
+| `--canvas-raised`  | `#F3F0EA` | `#252220` |
+| `--canvas-feature` | `#FAF9F6` | `#2C2A26` |
+| `--ink`            | `#2A2623` | `#EDE9E2` |
+| `--ink-muted`      | `#6B6560` | `#9B958E` |
+| `--ink-faint`      | `#A39E97` | `#5E5951` |
+| `--border`         | `#DDD8D0` | `#3A3632` |
+| `--border-strong`  | `#C4BEB5` | `#4E4943` |
 
 Entity colors remain the same in dark mode — they're already calibrated for contrast on dark surfaces. The `*-light` tints shift to `*-dark` variants at ~12% opacity over the dark canvas.
 
@@ -258,7 +258,7 @@ All buttons: `--radius-sm`, `--text-body-strong`, `--space-2` vertical / `--spac
 
 ### Inputs
 
-- Background: `--canvas-sunken`
+- Background: `--canvas-feature`
 - Border: `1px solid --border`, shifts to `--border-strong` on focus
 - Focus ring: `--shadow-focus` using the current entity color
 - Placeholder text: `--ink-faint`, DM Sans italic
@@ -281,7 +281,7 @@ The sidebar is the spatial anchor. It uses a warm dark surface to feel like a bo
 | Property          | Value                                                                                                                    |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Width             | `260px` (collapsible to `56px` icon-only)                                                                                |
-| Background        | `--ink` (warm near-black) in light mode, `--canvas-sunken` in dark mode                                                  |
+| Background        | `--ink` (warm near-black) in light mode, `--canvas-feature` in dark mode                                                 |
 | Text              | `--canvas` in light mode, `--ink` in dark mode                                                                           |
 | Active item       | `--canvas / 0.1` background highlight + left `3px` accent bar                                                            |
 | Sections          | "Today" (top), "Goals" group, "More" (settings, archive)                                                                 |
@@ -356,7 +356,7 @@ Custom line icons. `1.5px` stroke weight at `24px` canvas. Rounded caps and join
 
 `Plus`, `Calendar`, `Clock`, `Flame` (streak), `Skip-Forward` (skip habit), `ChevronRight` (expand), `ChevronDown` (collapse), `Grip` (drag handle), `Search`, `Settings`, `Archive`, `Trash` (danger contextual), `Sun`/`Moon` (theme toggle), `Sidebar` (collapse toggle).
 
-Prefer [Lucide Icons](https://lucide.dev/) as the base set — they match our stroke weight and corner style. Customize where needed (particularly the habit ring and goal flag).
+Prefer [Lucide Icons](https://lucide.dev/) as the base set — they match our stroke weight and corner style. Customize where needed (particularly the habit ring and goal flag). Import via lucide-react-native.
 
 ---
 
@@ -467,7 +467,7 @@ Empty states are opportunities for warmth, not feature-selling.
   /* Surface */
   --canvas: #faf8f4;
   --canvas-raised: #f3f0ea;
-  --canvas-sunken: #edeae4;
+  --canvas-feature: #edeae4;
 
   /* Text */
   --ink: #2a2623;
@@ -533,7 +533,7 @@ Empty states are opportunities for warmth, not feature-selling.
   :root {
     --canvas: #1c1a16;
     --canvas-raised: #252220;
-    --canvas-sunken: #16140f;
+    --canvas-feature: #16140f;
     --ink: #ede9e2;
     --ink-muted: #9b958e;
     --ink-faint: #5e5951;

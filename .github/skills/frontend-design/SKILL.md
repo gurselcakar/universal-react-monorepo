@@ -16,9 +16,10 @@ This workspace has an established brand system defined in `docs/brand-guidelines
 
 **NEVER introduce custom color values (hex, rgb, hsl, named colors).** All colors must come exclusively from the theme token system:
 
-**Surface & Text tokens:** `--canvas`, `--canvas-raised`, `--canvas-sunken`, `--ink`, `--ink-muted`, `--ink-faint`, `--border`, `--border-strong`
+**Surface & Text tokens:** `--canvas`, `--canvas-raised`, `--canvas-feature`, `--ink`, `--ink-muted`, `--ink-faint`, `--border`, `--border-strong`
 
 **Entity tokens (use each only for its entity — do NOT mix):**
+
 - Tasks: `--task` (`#4A6FA5` slate blue), `--task-light`
 - Habits: `--habit` (`#C17A3A` warm amber), `--habit-light`
 - Goals: `--goal` (`#3A7A5C` forest green), `--goal-light`
@@ -91,9 +92,9 @@ Import and compose from `@packages/shared-frontend/ui`:
 **Import pattern:**
 
 ```tsx
-import { Card, Badge, Input } from "@packages/shared-frontend/ui";
+import { Card, Badge, Input } from '@packages/shared-frontend/ui'
 // Or from the package directly
-import { Button } from "@packages/shared-frontend";
+import { Button } from '@packages/shared-frontend'
 ```
 
 ### When to Extend vs. Reuse
@@ -121,3 +122,42 @@ Focus on:
 **IMPORTANT**: Match implementation complexity to the aesthetic vision. Layouts need real craft — spacing rhythm, typographic hierarchy, and motion choreography carry the design, not color invention.
 
 Remember: the brand is Warm Modernism — Swiss editorial precision with craft warmth. Execute that vision with discipline and creativity in equal measure.
+
+---
+
+## MANDATORY: Demo Every New UI Component in `apps/ui-demo`
+
+**All new shared UI primitives added to `packages/shared-frontend/src/ui/` MUST be demonstrated in the `apps/ui-demo` app.** This is non-negotiable — a component without a demo is considered incomplete.
+
+### What a Demo Must Show
+
+- **All variants** — every `entity`, `variant`, `size`, or other prop that changes rendering
+- **Composition** — how sub-components (`CardHeader`, `CardFooter`, etc.) work together
+- **States** — default, hover (web), pressed (native), disabled if applicable
+- **Real content** — use plausible task/habit/goal copy, not "Lorem ipsum" or placeholder text
+
+### Where to Add It
+
+Add a new `const XyzSection = () => (...)` component to `apps/ui-demo/src/routes/index.tsx`, following the same pattern as `TypographySection`, `ButtonsSection`, and `ColorsSection`:
+
+1. Use `<SectionNumber n="0N" />`, `<SectionHeading>`, and `<SubLabel>` for consistent section structure
+2. Add `<XyzSection />` inside `<main>` in `ComponentLibrary`
+3. Add a nav link in the header `['Typography', 'Buttons', 'Colors', 'YourComponent']`
+4. Assign the next sequential section number
+
+### Section Structure Template
+
+```tsx
+const CardSection = () => (
+  <section className="border-border border-t py-16" id="cards">
+    <div className="mb-10">
+      <SectionNumber n="04" />
+      <SectionHeading>Cards</SectionHeading>
+      <p className="text-foreground-muted font-body mt-2 text-sm">
+        Brief description of the component and its purpose
+      </p>
+    </div>
+    {/* variant groups with <SubLabel> headers */}
+  </section>
+)
+```

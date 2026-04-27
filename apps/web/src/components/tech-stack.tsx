@@ -1,5 +1,4 @@
-import { imageSources, nativeDimensions } from '@chalkboard/shared-frontend/lib/image-sources'
-import Image from 'next/image'
+import { imageSources, nativeDimensions, Image } from '@chalkboard/shared-frontend'
 
 const technologies = [
   {
@@ -38,11 +37,16 @@ export const TechStack = () => (
           <div key={tech.name} className="flex items-center gap-4">
             <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center">
               <Image
-                src={tech.logo}
+                source={tech.logo}
                 alt={`${tech.name} logo`}
-                width={tech.width}
-                height={tech.height}
                 className="h-full w-full object-contain"
+                forceAspectRatio={{
+                  width: 40,
+                  nativeDimensions: {
+                    width: tech.width,
+                    height: tech.height,
+                  },
+                }}
               />
             </div>
             <div className="min-w-0 flex-1">

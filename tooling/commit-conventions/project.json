@@ -1,0 +1,23 @@
+{
+  "name": "commit-conventions",
+  "projectType": "library",
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "tooling/commit-conventions"
+      },
+      "inputs": ["default", "^default", "{projectRoot}/tsconfig.json"],
+      "cache": true
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run",
+        "cwd": "tooling/commit-conventions"
+      },
+      "cache": true
+    }
+  }
+}

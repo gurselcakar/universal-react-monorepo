@@ -70,6 +70,64 @@ mv apps/ui-demo apps/web
 pnpm install
 ```
 
+## Git Hooks
+
+This repository uses [husky](https://typicode.github.io/husky/) to enforce code quality and commit conventions via git hooks.
+
+### Setup
+
+Hooks are installed automatically when you run:
+
+```bash
+pnpm install
+```
+
+No additional setup is required.
+
+### Usage
+
+Hooks run transparently on every `git commit`:
+
+1. **Pre-commit** — runs ESLint and Prettier on staged files via lint-staged, then runs `pnpm typecheck`.
+2. **Commit-msg** — validates the branch name and commit message format.
+
+### Bypass
+
+In exceptional cases (WIP commits, emergency fixes), you can skip hooks:
+
+```bash
+git commit --no-verify          # skip all hooks for a single commit
+HUSKY=0 git commit              # disable husky entirely (useful in CI)
+```
+
+### Branch Naming Convention
+
+Branch names must match one of the following patterns:
+
+| Pattern                 | Example                 |
+| ----------------------- | ----------------------- |
+| `main`                  | `main`                  |
+| `staging`               | `staging`               |
+| `feature/<name>`        | `feature/login-page`    |
+| `feature/URM-<digits>*` | `feature/URM-123-login` |
+
+Commits on branches that don't follow this convention will be rejected.
+
+### Commit Message Format
+
+The required format depends on the branch type:
+
+- **Ticket branches** (`feature/URM-<digits>*`): `URM-<digits>: <description>`
+  ```
+  URM-123: add login form validation
+  ```
+- **Feature branches** (`feature/<name>`): `<branch-name>: <description>`
+  ```
+  feature/login-page: add form validation
+  ```
+
+Messages starting with `Merge`, `Revert`, `Amend`, `fixup!`, or `squash!` are accepted automatically.
+
 ## Author
 
 Built by [Gürsel Çakar](https://x.com/gurselcakar). Check out my games: [Hukora](https://hukora.com) and [Arithmego](https://arithmego.com).

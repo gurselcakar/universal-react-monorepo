@@ -6,10 +6,5 @@
     }
   },
   "include": ["src/**/*", "scripts/**/*", "nativewind-env.d.ts"],
-  "exclude": ["node_modules"],
-  "references": [
-    {
-      "path": "../../tooling/image-indexer"
-    }
-  ]
+  "exclude": ["node_modules"]
 }

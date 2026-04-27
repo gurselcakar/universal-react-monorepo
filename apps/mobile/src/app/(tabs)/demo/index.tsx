@@ -1,6 +1,6 @@
-import { Button, Card, Text as UIText, Badge, Input } from '@chalkboard/shared-frontend'
+import { Button, Card, Text as Text, Badge, Input } from '@chalkboard/shared-frontend'
 import { useState } from 'react'
-import { Text, View, Alert, ScrollView } from 'react-native'
+import { View, Alert, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Header } from '../../../components'
@@ -47,13 +47,13 @@ export default function Demo() {
         <ComponentSection title="Button" importStatement="from '@chalkboard/shared-frontend'">
           <View className="flex-row flex-wrap gap-3">
             <Button onPress={() => Alert.alert('Pressed', 'Primary button')}>
-              <UIText>Primary</UIText>
+              <Text>Primary</Text>
             </Button>
             <Button variant="secondary" onPress={() => {}}>
-              <UIText>Secondary</UIText>
+              <Text>Secondary</Text>
             </Button>
             <Button variant="ghost" onPress={() => {}}>
-              <UIText>Outline</UIText>
+              <Text>Outline</Text>
             </Button>
           </View>
         </ComponentSection>
@@ -61,19 +61,19 @@ export default function Demo() {
         <ComponentSection title="Card" importStatement="from '@chalkboard/shared-frontend'">
           <View className="gap-3">
             <Card>
-              <UIText variant="body">Default card with subtle border styling.</UIText>
+              <Text variant="body">Default card with subtle border styling.</Text>
             </Card>
-            <Card variant="elevated">
-              <UIText variant="body">Elevated card with shadow for emphasis.</UIText>
+            <Card>
+              <Text variant="body">Elevated card with shadow for emphasis.</Text>
             </Card>
           </View>
         </ComponentSection>
 
         <ComponentSection title="Text" importStatement="from '@chalkboard/shared-frontend'">
           <View className="gap-2">
-            <UIText variant="h3">Title variant</UIText>
-            <UIText variant="body">Body variant for regular content.</UIText>
-            <UIText variant="caption">Caption variant for secondary information.</UIText>
+            <Text variant="h3">Title variant</Text>
+            <Text variant="body">Body variant for regular content.</Text>
+            <Text variant="caption">Caption variant for secondary information.</Text>
           </View>
         </ComponentSection>
 
@@ -86,12 +86,7 @@ export default function Demo() {
         </ComponentSection>
 
         <ComponentSection title="Input" importStatement="from '@chalkboard/shared-frontend'">
-          <Input
-            label="Email address"
-            placeholder="you@example.com"
-            value={inputValue}
-            onChangeText={setInputValue}
-          />
+          <Input placeholder="you@example.com" value={inputValue} onChangeText={setInputValue} />
         </ComponentSection>
       </ScrollView>
     </SafeAreaView>

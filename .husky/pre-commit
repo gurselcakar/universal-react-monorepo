@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# NVM bootstrap — required for GUI editors (VS Code, etc.) where nvm is not on PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+npx lint-staged
+pnpm typecheck

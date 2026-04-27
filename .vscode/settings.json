@@ -1,3 +1,4 @@
+// This file is read by VSCode and AWS Kiro
 {
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -51,5 +52,15 @@
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
   "chat.agent.maxRequests": 10000,
   // Stop node_module error spam
-  "js/ts.tsserver.experimental.enableProjectDiagnostics": false
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
+
+  // Disable Atlassian Bitbucket + Rovo Dev features for all users
+  "atlascode.bitbucket.enabled": false,
+  "atlascode.bitbucket.explorer.enabled": false,
+  "atlascode.rovodev.enabled": false,
+  "atlascode.rovodev.thinkingBlockEnabled": false,
+  "atlascode.issueSuggestion.enabled": false,
+  "atlascode.issueSuggestion.contextLevel": "codeContext",
+  "kiroAgent.trustedCommands": ["npm *", "pnpm *", "npx vitest *", "NX_INTERACTIVE=false pnpm *"],
+  "kiroAgent.enableCodebaseIndexing": true
 }

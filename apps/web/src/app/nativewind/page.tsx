@@ -31,9 +31,11 @@ export default function ComponentsPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <Header />
       <Button>
-        This is a shared Button component. It uses React Native primitives and NativeWind for
-        styling, but renders as a native button on iOS and Android, and as a regular HTML button in
-        the web app.
+        <Text>
+          This is a shared Button component. It uses React Native primitives and NativeWind for
+          styling, but renders as a native button on iOS and Android, and as a regular HTML button
+          in the web app.
+        </Text>
       </Button>
       <main className="flex-1">
         <section className="px-6 py-16">
@@ -79,7 +81,7 @@ export default function ComponentsPage() {
                 <Card>
                   <Text variant="body">Default card with subtle border styling.</Text>
                 </Card>
-                <Card variant="elevated">
+                <Card>
                   <Text variant="body">Elevated card with shadow for emphasis.</Text>
                 </Card>
               </View>
@@ -113,7 +115,6 @@ export default function ComponentsPage() {
             >
               <View className="max-w-sm">
                 <Input
-                  label="Email address"
                   placeholder="you@example.com"
                   value={inputValue}
                   onChangeText={setInputValue}

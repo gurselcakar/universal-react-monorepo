@@ -1,7 +1,6 @@
 export { Badge } from './badge'
 export * from './ui'
-export { trpc } from './lib/trpc'
-export { sharedFrontendEnv } from './lib/env'
+export * from './lib'
 export { TRPCProvider } from './context/providers'
 export { HelloWorld } from './hello-world'
 export * from './auth'

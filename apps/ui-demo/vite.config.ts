@@ -9,11 +9,11 @@ import reactNativeWeb from 'vite-plugin-react-native-web'
  * Transforms require('./foo.png') → new URL('./foo.png', import.meta.url).href
  * so Vite's asset pipeline handles images correctly at serve/build time.
  */
-function requireImageTransform(): Plugin {
+const requireImageTransform = (): Plugin => {
   const imageRe = /\brequire\(\s*(['"])((?:[^'"]*?)\.(?:png|jpe?g|gif|webp|svg))\1\s*\)/g
   return {
     name: 'require-image-transform',
-    transform(code, id) {
+    transform: (code, id) => {
       if (!/\.[jt]sx?$/.test(id) || !code.includes('require(')) return null
       const result = code.replace(
         imageRe,
@@ -56,7 +56,7 @@ export default defineConfig({
           // the "file" loader. Stub image requires as empty JS so scanning
           // doesn't crash — the real transform plugin handles them at serve time.
           name: 'image-stub-for-dep-scan',
-          setup(build) {
+          setup: (build) => {
             build.onLoad({ filter: /\.(png|jpe?g|gif|webp|svg)$/ }, () => ({
               contents: 'module.exports = ""',
               loader: 'js',

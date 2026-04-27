@@ -11,6 +11,7 @@ import {
   SignInForm,
   Text,
 } from '@chalkboard/shared-frontend'
+import { TechStack } from '@chalkboard/ui-demo/components'
 import { createFileRoute } from '@tanstack/react-router'
 import type { ComponentProps } from 'react'
 import { useEffect, useState } from 'react'
@@ -696,10 +697,11 @@ const ComponentLibrary = () => {
           <CardSection />
           <InputSection />
           <SignInForm
-            onEmailSignIn={async () => null}
-            onGoogleSignIn={async () => null}
+            onEmailSignIn={() => Promise.resolve(null)}
+            onGoogleSignIn={() => Promise.resolve(null)}
             onNavigateToSignUp={() => null}
           />
+          <TechStack />
         </main>
       </div>
     </div>

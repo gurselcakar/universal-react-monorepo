@@ -177,6 +177,7 @@ export const withTypeChecking = (tsconfigRootDir) =>
     extends: [...tseslint.configs.strictTypeChecked],
     languageOptions: {
       parserOptions: {
+        project: true,
         tsconfigRootDir,
       },
     },

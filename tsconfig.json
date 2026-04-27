@@ -1,9 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "files": [],
-  "references": [
-    {
-      "path": "./tooling/image-indexer"
-    }
-  ]
+  "files": []
 }

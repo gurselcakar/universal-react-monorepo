@@ -1,5 +1,4 @@
-import { HelloWorld } from '@chalkboard/shared-frontend'
-import { imageSources } from '@chalkboard/shared-frontend/lib/image-sources'
+import { HelloWorld, imageSources } from '@chalkboard/shared-frontend'
 import { Image } from 'expo-image'
 import { Link } from 'expo-router'
 import { Text, View, ScrollView, Pressable, Linking } from 'react-native'
@@ -82,7 +81,6 @@ export default function Home() {
               <View key={tech.name} className="w-[45%] flex-row items-center gap-4">
                 <View className="h-16 w-16 items-center justify-center">
                   <Image
-                     
                     source={tech.image}
                     style={{ width: 64, height: 64 }}
                     contentFit="contain"

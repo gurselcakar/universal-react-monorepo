@@ -1,6 +1,7 @@
 import path from 'path'
-import type { NextConfig } from 'next'
+
 import { config } from 'dotenv'
+import type { NextConfig } from 'next'
 import webpack from 'webpack'
 
 if (process.env.NODE_ENV !== 'production') {

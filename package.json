@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "nx run-many -t dev",
-    "build": "nx run-many -t build",
-    "typecheck": "nx run-many -t typecheck",
-    "format": "nx format:write",
-    "format:check": "nx format:check",
-    "lint": "nx run-many -t lint --configuration=fix",
-    "lint:check": "nx run-many -t lint",
-    "test": "nx run-many -t test"
+    "build": "nx --no-tui run-many -t build",
+    "typecheck": "nx --no-tui run-many -t typecheck",
+    "format": "nx --no-tui format:write",
+    "format:check": "nx --no-tui format:check",
+    "lint": "nx --no-tui run-many -t lint --configuration=fix",
+    "lint:check": "nx --no-tui run-many -t lint",
+    "test": "nx --no-tui run-many -t test",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -20,18 +21,22 @@
   "devDependencies": {
     "@chalkboard/eslint-config-base": "workspace:*",
     "@chalkboard/prettier-config": "workspace:*",
+    "@chalkboard/commit-conventions": "workspace:*",
     "@nx/eslint": "22.6.1",
     "@nx/next": "22.6.1",
     "@nx/vite": "22.6.1",
     "@nx/web": "22.6.1",
-    "@types/node": "^22.0.0",
     "@swc-node/register": "^1.11.1",
     "@swc/core": "^1.15.21",
+    "@types/node": "^22.0.0",
     "eslint-config-prettier": "^10.1.8",
+    "husky": "9.1.7",
     "jiti": "2.4.2",
+    "lint-staged": "16.4.0",
     "nx": "22.6.1",
     "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tsx": "^4.21.0"
   },
   "pnpm": {
     "overrides": {
@@ -46,6 +51,15 @@
       "esbuild",
       "sharp",
       "unrs-resolver"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,yaml,yml,md}": [
+      "prettier --write"
     ]
   }
 }
